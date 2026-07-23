@@ -27,6 +27,7 @@ Included:
 - handoff template
 - chronological handoff index
 - improved template-specific documentation
+- pull-request template and review checklist
 
 Excluded:
 
@@ -39,6 +40,7 @@ Excluded:
 
 ```text
 README.md
+.github/pull_request_template.md
 docs/WORKFLOW.md
 docs/HANDOFF_TEMPLATE.md
 docs/HANDOFF_INDEX.md
@@ -56,6 +58,8 @@ The repository documentation was reorganized around three levels:
 1. The root README explains the repository purpose, full directory structure, available templates, usage, workflow, handoff policy, compilation, and versioning.
 2. Each template folder has its own README describing local structure, customization points, and compilation commands.
 3. The `docs/` directory records project governance and historical continuity through a workflow guide, reusable handoff template, chronological index, and immutable handoff records.
+
+A repository pull-request template was also added so that every review captures scope, validation, handoff references, limitations, and completion checks consistently.
 
 ## Design decisions
 
@@ -97,6 +101,12 @@ and registers it in:
 docs/HANDOFF_INDEX.md
 ```
 
+When a pull request is opened, GitHub automatically loads the checklist from:
+
+```text
+.github/pull_request_template.md
+```
+
 ## Validation
 
 ```text
@@ -104,6 +114,7 @@ Validation type: Documentation review
 Checked: Relative Markdown links and referenced repository paths
 Checked: Branch naming and Git command sequence
 Checked: Handoff ID and index consistency
+Checked: Pull-request template coverage
 LaTeX compilation: Not required; no LaTeX source was modified
 Visual inspection: GitHub Markdown rendering to be reviewed in the pull request
 ```
@@ -111,13 +122,11 @@ Visual inspection: GitHub Markdown rendering to be reviewed in the pull request
 ## Known limitations
 
 - GitHub branch protection is not yet configured.
-- No pull-request template is included yet.
 - No GitHub Actions workflow currently compiles the templates automatically.
 - The repository remains private during initial development.
 
 ## Follow-up work
 
-- [ ] Add `.github/pull_request_template.md`.
 - [ ] Add GitHub Actions compilation checks for the three templates.
 - [ ] Configure branch protection for `main` when repository settings permit the desired rules.
 - [ ] Define the first stable `v1.0.0` release criteria.
@@ -129,6 +138,7 @@ Because this branch changes documentation only, rollback can be performed by rev
 ## Related references
 
 - Root documentation: `README.md`
+- Pull-request template: `.github/pull_request_template.md`
 - Workflow: `docs/WORKFLOW.md`
 - Handoff index: `docs/HANDOFF_INDEX.md`
 - Handoff template: `docs/HANDOFF_TEMPLATE.md`
