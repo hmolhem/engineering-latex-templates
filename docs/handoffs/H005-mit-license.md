@@ -8,7 +8,7 @@
 | Author | `Hossein Molhem and ChatGPT` |
 | Repository | `hmolhem/engineering-latex-templates` |
 | Branch | `chore/add-mit-license` |
-| Pull request | `Pending` |
+| Pull request | `#5` |
 | Related version | `Unreleased after v0.2.0` |
 | Status | `Ready for review` |
 
@@ -98,6 +98,7 @@ Rollback can be performed by reverting the eventual merge commit. Removing the l
 
 ## Related references
 
+- Pull request: `#5`
 - License file: `LICENSE`
 - Root documentation: `README.md`
 - Handoff index: `docs/HANDOFF_INDEX.md`
