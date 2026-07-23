@@ -8,7 +8,7 @@ This index provides a chronological entry point to the repository's implementati
 |---|---|---|---|---|---|---|
 | 2026-07-22 | `H001` | Repository documentation and controlled development workflow | Repository-wide | `docs/repository-documentation-and-handoffs` | Merged in PR #1 | [`H001-repository-documentation-and-workflow.md`](handoffs/H001-repository-documentation-and-workflow.md) |
 | 2026-07-22 | `H002` | Template PDF previews | All templates | `docs/add-template-pdf-previews` | Merged in PR #2 | [`H002-template-pdf-previews.md`](handoffs/H002-template-pdf-previews.md) |
-| 2026-07-23 | `H003` | Enhanced IEEE paper template | IEEE paper template | `feature/enhance-ieee-paper-template` | In progress | [`H003-enhanced-ieee-paper-template.md`](handoffs/H003-enhanced-ieee-paper-template.md) |
+| 2026-07-23 | `H003` | Enhanced IEEE paper template | IEEE paper template | `feature/enhance-ieee-paper-template` | Ready for review | [`H003-enhanced-ieee-paper-template.md`](handoffs/H003-enhanced-ieee-paper-template.md) |
 
 ## Naming convention
 
