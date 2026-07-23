@@ -17,6 +17,8 @@
 - Added an eight-page repository showcase carousel with real rendered previews from the report, presentation, and IEEE paper templates.
 - Added a narrow `.gitignore` exception for the curated LinkedIn carousel PDF.
 - Added Handoff `H004` documenting the carousel implementation, validation, and maintenance workflow.
+- Added the MIT License and documented repository reuse terms.
+- Added Handoff `H005` documenting the licensing decision and scope.
 
 ## v0.2.0 — Standardized 5G-report architecture
 
