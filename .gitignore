@@ -38,7 +38,12 @@ Thumbs.db
 .idea/
 
 
+*.pdf
+
 # Keep curated template preview PDFs
 !report-template/preview/engineering-report-template-preview.pdf
 !presentation-template/preview/technical-presentation-template-preview.pdf
 !ieee-paper-template/preview/ieee-paper-template-preview.pdf
+
+# Keep curated LinkedIn carousel PDF
+!social-media/linkedin-carousel/engineering-latex-templates-carousel/engineering-latex-templates-carousel.pdf

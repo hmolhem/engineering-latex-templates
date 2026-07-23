@@ -1,0 +1,42 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{carousel-theme}[2026/07/23 LinkedIn carousel theme]
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\RequirePackage{graphicx}
+\RequirePackage{ragged2e}
+\RequirePackage{enumitem}
+\RequirePackage{fontawesome5}
+\usetikzlibrary{positioning,calc,shapes.geometric,arrows.meta,fit,shadows}
+\definecolor{Navy}{HTML}{102A43}
+\definecolor{Blue}{HTML}{1464F4}
+\definecolor{Cyan}{HTML}{25B5D8}
+\definecolor{Ink}{HTML}{1F2933}
+\definecolor{Slate}{HTML}{52606D}
+\definecolor{Mist}{HTML}{F3F7FA}
+\definecolor{Line}{HTML}{D7E3EC}
+\definecolor{White}{HTML}{FFFFFF}
+\definecolor{Green}{HTML}{1F9D74}
+\newcommand{\CarouselAuthor}{Hossein Molhem}
+\newcommand{\CarouselHandle}{github.com/hmolhem/engineering-latex-templates}
+\newcommand{\SlideNumber}{1}
+\newcommand{\setslide}[1]{\renewcommand{\SlideNumber}{#1}}
+\newcommand{\slidefooter}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \draw[Line,line width=0.5pt] ([xshift=13mm,yshift=14mm]current page.south west) -- ([xshift=-13mm,yshift=14mm]current page.south east);
+    \node[anchor=west,font=\sffamily\fontsize{8.5}{10}\selectfont,text=Slate] at ([xshift=13mm,yshift=7mm]current page.south west) {\CarouselAuthor};
+    \node[anchor=center,font=\sffamily\fontsize{7.5}{9}\selectfont,text=Slate] at ([yshift=7mm]current page.south) {\CarouselHandle};
+    \node[anchor=east,font=\sffamily\bfseries\fontsize{9}{10}\selectfont,text=Blue] at ([xshift=-13mm,yshift=7mm]current page.south east) {\SlideNumber/8};
+  \end{tikzpicture}}
+\newcommand{\slideheading}[2]{%
+  {\sffamily\bfseries\fontsize{26}{29}\selectfont\color{Navy} #1\par}
+  \vspace{3mm}
+  {\sffamily\fontsize{12.5}{16}\selectfont\color{Slate} #2\par}
+}
+\newcommand{\pill}[1]{\tikz[baseline=(X.base)]\node[rounded corners=3mm,fill=Blue!9,draw=Blue!18,inner xsep=3.2mm,inner ysep=1.8mm,font=\sffamily\bfseries\fontsize{8.5}{9}\selectfont,text=Blue](X){#1};}
+\newenvironment{carouselitemize}{\begin{itemize}[leftmargin=6mm,itemsep=2.6mm,topsep=1mm,label=\textcolor{Blue}{\small\faCheckCircle}]}{\end{itemize}}
+\newcommand{\card}[3]{%
+\begin{tikzpicture}
+\node[rounded corners=4mm,fill=White,draw=Line,line width=.7pt,minimum width=57mm,minimum height=52mm,inner sep=5mm,align=left] (c) {\begin{minipage}{47mm}\centering{\color{#1}\fontsize{22}{22}\selectfont #2}\par\vspace{3mm}{\sffamily\bfseries\fontsize{11}{13}\selectfont\color{Navy}#3}\end{minipage}};
+\end{tikzpicture}}
