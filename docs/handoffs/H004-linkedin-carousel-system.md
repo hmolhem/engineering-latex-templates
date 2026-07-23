@@ -8,7 +8,7 @@
 | Author | `Hossein Molhem and ChatGPT` |
 | Repository | `hmolhem/engineering-latex-templates` |
 | Branch | `feature/linkedin-carousel-system` |
-| Pull request | `Pending` |
+| Pull request | `#4` |
 | Related version | `Unreleased after v0.2.0` |
 | Status | `Ready for review` |
 
@@ -111,6 +111,7 @@ Rollback can be performed by reverting the eventual merge commit. The carousel s
 
 ## Related references
 
+- Pull request: `#4`
 - Carousel documentation: `social-media/linkedin-carousel/README.md`
 - Handoff index: `docs/HANDOFF_INDEX.md`
 - Workflow: `docs/WORKFLOW.md`
