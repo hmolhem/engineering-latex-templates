@@ -10,7 +10,7 @@
 | Branch | `feature/enhance-ieee-paper-template` |
 | Pull request | `Pending` |
 | Related version | `Unreleased after v0.2.0` |
-| Status | `In progress — awaiting binary figure and refreshed preview PDF` |
+| Status | `Ready for review` |
 
 ## Purpose
 
@@ -78,22 +78,15 @@ The existing preview filename remains unchanged so the root README link remains 
 
 ## Validation
 
-Completed:
-
 ```text
-The candidate package compiled successfully in the review environment.
-The repository owner opened and inspected the candidate in Overleaf.
+The candidate package compiled successfully in Overleaf.
+The repository owner visually inspected and approved the rendered two-page PDF.
 In-text citations and bibliography entries were confirmed present.
-Equations, figures, tables, labels, and cross-references were included.
-The source was reviewed to ensure the example is described as illustrative.
-```
-
-Pending before PR:
-
-```text
-Add ieee-paper-template/figures/beam_patterns.pdf to the branch.
-Replace ieee-paper-template/preview/ieee-paper-template-preview.pdf with the approved rendered PDF.
-Confirm the branch compiles from repository contents.
+Equations, figures, tables, labels, and cross-references were confirmed present.
+The external beam-pattern PDF is committed at the path referenced by main.tex.
+The curated IEEE preview PDF was replaced with the approved rendered output.
+The branch contains all source, bibliography, figure, README, changelog, handoff, and index changes required by this scope.
+The branch is ahead of main without divergence.
 ```
 
 ## Known limitations
