@@ -1,0 +1,5 @@
+$ python codes/example.py
+Input angle: 18.0 deg
+Sensor count: 4
+Hermitian error: 0.000e+00
+Status: PASS

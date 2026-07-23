@@ -1,0 +1,45 @@
+\begin{titlepage}
+    \thispagestyle{titlepage}
+    \centering
+    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+    % Optional organization/university logo.
+    % The logo path is defined in main.tex. Comment that definition to hide it.
+    \ifdefined\reportlogo
+        \IfFileExists{\reportlogo}{%
+            \includegraphics[width=\reportlogowidth]{\reportlogo}\\[1.5cm]
+        }{%
+            \fbox{\parbox[c][2.3cm][c]{0.72\textwidth}{%
+                \centering Missing logo file:\\
+                \texttt{\detokenize\expandafter{\reportlogo}}}}
+            \\[1.5cm]
+        }
+    \else
+        \vspace*{1.5cm}
+    \fi
+
+    % The cover typography and spacing follow the standardized 5G report.
+    \HRule \\[0.4cm]
+    {\huge \bfseries \reporttitle}\\[0.4cm]
+    \HRule \\[1.5cm]
+
+    \textsc{\Large \coursename}\\[1.0cm]
+    \textsc{\Large \universityname}\\[0.5cm]
+    \textsc{\large \departmentname}\\[0.95cm]
+
+    \begin{flushleft} \large
+        \textit{Author:}\\
+        \textbf{\studentname}\\[0.1cm]
+
+        \textbf{\studentidlabel:} \textbf{\studentid}\\[0.8cm]
+
+        \textit{Instructor / Supervisor:}\\
+        \textbf{\professorname}
+    \end{flushleft}
+
+    \vfill
+
+    \submissiondate\\
+    \semestername
+
+\end{titlepage}

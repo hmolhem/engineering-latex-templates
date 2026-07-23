@@ -1,0 +1,17 @@
+# Changelog
+
+## v0.2.0 — Standardized 5G-report architecture
+
+- Rebuilt the report template from the latest standardized 5G project report.
+- Restored `frontmatter/objective.tex`.
+- Restored consistent configurable headers on all non-cover pages.
+- Preserved the preferred cover typography and spacing.
+- Added an optional cover-logo mechanism controlled from `main.tex`.
+- Restored appendix support through `appendices/00_appendices.tex`.
+- Restored the single report-body menu at `content/00_report_body.tex`.
+- Added a fully populated fictional report demonstrating custom environments, equations, figures,
+  subfigures, tables, code listings, missing-figure placeholders, appendices, and references.
+
+## v0.1.0 — Initial repository structure
+
+- Added report, presentation, and IEEE paper template folders.

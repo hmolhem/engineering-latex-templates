@@ -1,0 +1,71 @@
+\section{Mathematical Notation and Custom Environments}
+
+\subsection{Signal Model}
+
+For an array of $M$ sensors, a narrowband snapshot may be represented by
+\begin{equation}
+    \vec{x}[n] = \steer{\theta_0}s[n] + \vec{v}[n],
+    \label{eq:signal-model}
+\end{equation}
+where $\steer{\theta_0}\in\C^M$ is the steering vector, $s[n]$ is the source signal,
+and $\vec{v}[n]$ is additive noise. The sample covariance matrix is
+\begin{equation}
+    \widehat{R}_{xx}
+    = \frac{1}{N}\sum_{n=0}^{N-1}\vec{x}[n]\vec{x}^{\He}[n].
+    \label{eq:sample-covariance}
+\end{equation}
+The expectation, trace, rank, norm, and optimization macros are available directly:
+\begin{equation}
+    \theta_{\mathrm{est}}
+    = \argmax_{\theta}\frac{1}{\norm{\mat{E}_{n}^{\He}\steer{\theta}}_2^2},
+    \qquad
+    \tr(\widehat{R}_{xx})>0,
+    \qquad
+    \rank(\widehat{R}_{xx})\le M.
+\end{equation}
+
+A quick column vector can be created with the \verb|\colvec| macro:
+\begin{equation}
+    \steer{\theta}
+    = \colvec{1,e^{\jv\psi},e^{\jv2\psi},e^{\jv3\psi}},
+    \qquad
+    \psi = \frac{2\pi d}{\lambda}\sin\theta.
+\end{equation}
+
+\begin{theorem}{Hermitian Covariance Matrix}{th:hermitian}
+The matrix $\widehat{\Rxx}$ defined in \eqref{eq:sample-covariance} is Hermitian and
+positive semidefinite.
+\end{theorem}
+
+\begin{proof}
+Each outer product $\vec{x}[n]\vec{x}^{\He}[n]$ is Hermitian. For any
+$\vec{z}\in\C^M$,
+\[
+\vec{z}^{\He}\widehat{\Rxx}\vec{z}
+=\frac{1}{N}\sum_{n=0}^{N-1}\abs*{\vec{x}^{\He}[n]\vec{z}}^2\ge 0.
+\]
+Therefore, their average is Hermitian positive semidefinite.
+\end{proof}
+
+\begin{lemma}{Trace as Average Channel Energy}{lem:trace}
+The trace of the sample covariance matrix equals the sum of the average energies measured
+across all sensor channels.
+\end{lemma}
+
+\begin{example}{Fixed-Point Notation}{ex:qformat}
+A signed fixed-point implementation may be written as \qformat{1}{15}. Quantization is
+represented by $\quant{x}$, and a three-sample delay by $\delay{3}$.
+\end{example}
+
+\begin{definition}{Physical Interpretation}{def:physical-meaning}
+For a half-wavelength array, progressive phase across the sensor channels encodes source
+direction. The covariance matrix retains this spatial coherence while averaging random noise.
+\end{definition}
+
+\subsection{Matrix-Elimination Environment}
+
+The advanced mathematics file also provides a compact elimination display:
+\begin{elimination}[1]{2}{1.35em}{1.15}
+\eliminationstep{1 & 2 & 5 \\ 3 & 4 & 11}{R_2\leftarrow R_2-3R_1}
+\eliminationstep{1 & 2 & 5 \\ 0 & -2 & -4}{R_2\leftarrow -\tfrac{1}{2}R_2}
+\end{elimination}

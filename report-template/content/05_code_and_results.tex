@@ -1,0 +1,69 @@
+\section{Code Listings and Representative Results}
+
+\subsection{Python}
+
+\lstinputlisting[
+    style=Python,
+    caption={Example Python computation.},
+    label={lst:python-example}
+]{codes/example.py}
+
+\subsection{MATLAB}
+
+\begin{lstlisting}[style=Matlab,caption={Example MATLAB-style array calculation.}]
+M = 4;
+d = 0.5;
+theta = -60:0.25:60;
+psi = 2*pi*d*sind(theta);
+AF = abs(sum(exp(1j*(0:M-1).'*psi),1));
+AF = AF ./ max(AF);
+\end{lstlisting}
+
+\subsection{Vitis HLS C/C++}
+
+\begin{lstlisting}[style=vitisHLS,caption={Illustrative HLS accumulation loop.}]
+void energy_accel(const float x[256], float &energy) {
+    float acc = 0.0f;
+    for (int n = 0; n < 256; ++n) {
+        #pragma HLS PIPELINE II=1
+        acc += x[n] * x[n];
+    }
+    energy = acc;
+}
+\end{lstlisting}
+
+\subsection{PowerShell}
+
+\begin{lstlisting}[style=PowerShell,caption={Illustrative report-folder validation.}]
+$Required = @("main.tex", "references.bib", "content")
+foreach ($Item in $Required) {
+    if (-not (Test-Path $Item)) {
+        Write-Host "Missing: $Item"
+    }
+}
+\end{lstlisting}
+
+\subsection{Console Output}
+
+\lstinputlisting[
+    style=ConsoleOutput,
+    caption={Representative console output.}
+]{appendices/console_outputs/example_console.txt}
+
+\subsection{Representative Result Summary}
+
+\begin{table}[H]
+    \centering
+    \caption{Fictitious validation results used only for template demonstration.}
+    \label{tab:results}
+    \begin{tabular}{@{}lcc@{}}
+        \toprule
+        Metric & Expected & Reported \\
+        \midrule
+        Source angle & $18.0\degree$ & $18.2\degree$ \\
+        Covariance Hermitian error & $<10^{-10}$ & $2.4\times10^{-14}$ \\
+        Normalized peak & 1.000 & 1.000 \\
+        Processing status & Pass & Pass \\
+        \bottomrule
+    \end{tabular}
+\end{table}

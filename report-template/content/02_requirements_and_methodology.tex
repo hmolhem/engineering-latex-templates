@@ -1,0 +1,32 @@
+\section{Requirements and Methodology}
+
+The fictional design uses four sensors with half-wavelength spacing and a nominal operating
+frequency of \SI{2.45}{\giga\hertz}. The analysis workflow consists of geometry definition,
+analytical modeling, synthetic-data generation, covariance estimation, direction-of-arrival
+processing, and reporting.
+
+\subsection{Representative Requirements}
+
+\begin{problem}{Example Engineering Requirements}{prob:requirements}
+Design a four-channel array-processing demonstrator that accepts complex sensor samples,
+forms a sample covariance matrix, estimates a source direction, and produces a concise
+validation report. The demonstrator should document assumptions, numerical settings, and
+known limitations.
+\end{problem}
+
+\begin{definition}{Validation Evidence}{def:validation}
+Validation evidence is a reproducible artifact---for example, an equation check, source-code
+test, simulation plot, measurement table, or convergence study---that supports a technical
+claim made in the report.
+\end{definition}
+
+\subsection{Method Summary}
+
+\begin{enumerate}[label=\arabic*.]
+    \item Define the physical and numerical parameters.
+    \item Generate or acquire complex sensor snapshots.
+    \item Estimate the sample covariance matrix.
+    \item Apply a subspace or beamforming estimator.
+    \item Compare the recovered result with the known test condition.
+    \item Record limitations and recommended follow-up verification.
+\end{enumerate}
