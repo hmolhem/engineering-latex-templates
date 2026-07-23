@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+- Expanded the root README with the complete repository structure, template summaries, compilation instructions, versioning guidance, and publication notes.
+- Added a mandatory branch-and-pull-request development workflow.
+- Added a reusable Markdown handoff template.
+- Added a chronological handoff index and the first repository handoff record.
+- Expanded the README files for the report, presentation, and IEEE paper templates.
+- Added a pull-request checklist template for consistent reviews.
+
 ## v0.2.0 — Standardized 5G-report architecture
 
 - Rebuilt the report template from the latest standardized 5G project report.
