@@ -19,6 +19,8 @@
 - Added Handoff `H004` documenting the carousel implementation, validation, and maintenance workflow.
 - Added the MIT License and documented repository reuse terms.
 - Added Handoff `H005` documenting the licensing decision and scope.
+- Rebuilt the committed LinkedIn carousel PDF from the approved final source after detecting a stale publication artifact.
+- Added Handoff `H006` documenting artifact synchronization, validation, and the approved PDF checksum.
 
 ## v0.2.0 — Standardized 5G-report architecture
 

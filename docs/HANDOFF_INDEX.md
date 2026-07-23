@@ -10,7 +10,8 @@ This index provides a chronological entry point to the repository's implementati
 | 2026-07-22 | `H002` | Template PDF previews | All templates | `docs/add-template-pdf-previews` | Merged in PR #2 | [`H002-template-pdf-previews.md`](handoffs/H002-template-pdf-previews.md) |
 | 2026-07-23 | `H003` | Enhanced IEEE paper template | IEEE paper template | `feature/enhance-ieee-paper-template` | Merged in PR #3 | [`H003-enhanced-ieee-paper-template.md`](handoffs/H003-enhanced-ieee-paper-template.md) |
 | 2026-07-23 | `H004` | LinkedIn carousel system | Social media / repository showcase | `feature/linkedin-carousel-system` | Merged in PR #4 | [`H004-linkedin-carousel-system.md`](handoffs/H004-linkedin-carousel-system.md) |
-| 2026-07-23 | `H005` | MIT License | Repository-wide | `chore/add-mit-license` | Ready for review | [`H005-mit-license.md`](handoffs/H005-mit-license.md) |
+| 2026-07-23 | `H005` | MIT License | Repository-wide | `chore/add-mit-license` | Merged in PR #5 | [`H005-mit-license.md`](handoffs/H005-mit-license.md) |
+| 2026-07-23 | `H006` | Rebuilt LinkedIn carousel PDF | Social media / publication artifact | `fix/rebuild-linkedin-carousel-pdf` | Ready for review | [`H006-rebuilt-linkedin-carousel-pdf.md`](handoffs/H006-rebuilt-linkedin-carousel-pdf.md) |
 
 ## Naming convention
 
@@ -28,6 +29,7 @@ H002-template-pdf-previews.md
 H003-enhanced-ieee-paper-template.md
 H004-linkedin-carousel-system.md
 H005-mit-license.md
+H006-rebuilt-linkedin-carousel-pdf.md
 ```
 
 The numeric identifier must remain unique and sequential. A handoff is never deleted after merge; corrections should be recorded in a later handoff and cross-referenced.
