@@ -1,0 +1,189 @@
+\documentclass[10pt]{article}
+\usepackage[paperwidth=216mm,paperheight=270mm,margin=0mm]{geometry}
+\usepackage{carousel-theme}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\begin{document}
+
+% 1 Cover
+\setslide{1}
+\pagecolor{Navy}
+\begin{tikzpicture}[remember picture,overlay]
+\fill[Blue] ([xshift=-32mm,yshift=-35mm]current page.north east) circle (58mm);
+\fill[Cyan,opacity=.75] ([xshift=-4mm,yshift=18mm]current page.south west) circle (48mm);
+\draw[White,opacity=.18,line width=1.2pt] ([xshift=18mm,yshift=-25mm]current page.north west) rectangle ([xshift=-18mm,yshift=25mm]current page.south east);
+\node[anchor=north west,text width=168mm] at ([xshift=21mm,yshift=-40mm]current page.north west) {%
+{\sffamily\bfseries\fontsize{31}{34}\selectfont\color{White}Engineering\\LaTeX Templates\par}
+\vspace{7mm}
+{\sffamily\fontsize{15}{20}\selectfont\color{White!88}A reusable documentation system for reports, technical presentations, and IEEE-style papers.\par}
+\vspace{10mm}
+\pill{OPEN-SOURCE ENGINEERING WORKFLOW}\quad\pill{LATEX + GIT + PDF}
+};
+\node[anchor=south west,text=White] at ([xshift=21mm,yshift=29mm]current page.south west) {\sffamily\bfseries\fontsize{12}{14}\selectfont Hossein Molhem};
+\node[anchor=south east,text=White!85] at ([xshift=-21mm,yshift=29mm]current page.south east) {\sffamily\fontsize{9}{11}\selectfont Swipe to explore \faArrowRight};
+\end{tikzpicture}
+\newpage
+
+% 2 Problem
+\pagecolor{Mist}\setslide{2}
+\vspace*{19mm}\hspace*{16mm}\begin{minipage}{184mm}
+\slideheading{Strong engineering deserves strong documentation.}{Technical work often loses impact because the reporting system is rebuilt from scratch for every project.}
+\vspace{10mm}
+\begin{center}
+\card{Blue}{\faRedo}{Repeated setup} \hspace{3mm}
+\card{Cyan}{\faPuzzlePiece}{Inconsistent structure} \hspace{3mm}
+\card{Green}{\faHistory}{Lost decisions}
+\end{center}
+\vspace{10mm}
+\begin{tikzpicture}
+\node[rounded corners=4mm,fill=White,draw=Line,inner sep=7mm,text width=168mm] {\sffamily\fontsize{13}{17}\selectfont\color{Ink}\textbf{The core problem:} equations, figures, tables, references, appendices, and review decisions are frequently managed as isolated files rather than as one controlled engineering system.};
+\end{tikzpicture}
+\end{minipage}\slidefooter
+\newpage
+
+%3 solution architecture
+\pagecolor{White}\setslide{3}
+\vspace*{18mm}\hspace*{16mm}\begin{minipage}{184mm}
+\slideheading{One repository. Three reusable document systems.}{Each template provides a practical starting point while preserving consistent engineering structure and version history.}
+\vspace{8mm}
+\begin{center}
+\begin{tikzpicture}[node distance=8mm]
+\node[rounded corners=4mm,fill=Blue!8,draw=Blue!25,minimum width=50mm,minimum height=56mm,align=center,font=\sffamily\bfseries,text=Navy] (r) {ENGINEERING\\REPORT};
+\node[rounded corners=4mm,fill=Cyan!9,draw=Cyan!28,minimum width=50mm,minimum height=56mm,align=center,right=of r,font=\sffamily\bfseries,text=Navy] (p) {TECHNICAL\\PRESENTATION};
+\node[rounded corners=4mm,fill=Green!9,draw=Green!28,minimum width=50mm,minimum height=56mm,align=center,right=of p,font=\sffamily\bfseries,text=Navy] (i) {IEEE-STYLE\\PAPER};
+\draw[-{Latex[length=3mm]},Blue!60,line width=1pt] (r.south) -- ++(0,-14mm) -| (p.south);
+\draw[-{Latex[length=3mm]},Blue!60,line width=1pt] (i.south) -- ++(0,-14mm) -| (p.south);
+\node[rounded corners=4mm,fill=Navy,text=White,minimum width=92mm,minimum height=24mm,below=22mm of p,align=center,font=\sffamily\bfseries] {Shared workflow: Git branches, reviews,\\handoffs, previews, and controlled merges};
+\end{tikzpicture}
+\end{center}
+\end{minipage}\slidefooter
+\newpage
+
+%4 report
+\pagecolor{Mist}\setslide{4}
+\vspace*{18mm}\hspace*{16mm}\begin{minipage}{184mm}
+\slideheading{Engineering Report Template}{Real pages from the compiled report show the complete path from professional cover design to equations, figures, tables, and source code.}
+\vspace{7mm}
+\begin{center}
+\begin{tikzpicture}
+\node[inner sep=0pt,fill=White,draw=Line,line width=.7pt,drop shadow={opacity=.14}] (r1)
+  {\includegraphics[page=1,width=49mm]{../../../report-template/preview/engineering-report-template-preview.pdf}};
+\node[inner sep=0pt,fill=White,draw=Line,line width=.7pt,drop shadow={opacity=.14},right=8mm of r1] (r2)
+  {\includegraphics[page=11,width=49mm]{../../../report-template/preview/engineering-report-template-preview.pdf}};
+\node[inner sep=0pt,fill=White,draw=Line,line width=.7pt,drop shadow={opacity=.14},right=8mm of r2] (r3)
+  {\includegraphics[page=13,width=49mm]{../../../report-template/preview/engineering-report-template-preview.pdf}};
+\node[rounded corners=2mm,fill=Navy,text=White,font=\sffamily\bfseries\fontsize{8}{9}\selectfont,inner xsep=3mm,inner ysep=1.5mm] at ([yshift=-5mm]r1.south) {COVER};
+\node[rounded corners=2mm,fill=Blue,text=White,font=\sffamily\bfseries\fontsize{8}{9}\selectfont,inner xsep=3mm,inner ysep=1.5mm] at ([yshift=-5mm]r2.south) {FIGURES + TABLES};
+\node[rounded corners=2mm,fill=Cyan,text=White,font=\sffamily\bfseries\fontsize{8}{9}\selectfont,inner xsep=3mm,inner ysep=1.5mm] at ([yshift=-5mm]r3.south) {SOURCE CODE};
+\end{tikzpicture}
+\end{center}
+\vspace{10mm}
+\begin{tikzpicture}
+\node[rounded corners=4mm,fill=White,draw=Line,inner sep=6mm,text width=170mm] {
+\begin{minipage}{78mm}
+\begin{carouselitemize}
+\item Modular front matter and metadata
+\item Equations and theorem environments
+\end{carouselitemize}
+\end{minipage}\hfill
+\begin{minipage}{78mm}
+\begin{carouselitemize}
+\item Figures, tables, code, and appendices
+\item Repeatable structure for engineering studies
+\end{carouselitemize}
+\end{minipage}};
+\end{tikzpicture}
+\end{minipage}\slidefooter
+\newpage
+
+%5 presentation
+\pagecolor{White}\setslide{5}
+\vspace*{18mm}\hspace*{16mm}\begin{minipage}{184mm}
+\slideheading{Technical Presentation Template}{The compiled deck demonstrates a consistent visual system for opening context, presenting the engineering model, and communicating quantitative results.}
+\vspace{7mm}
+\begin{center}
+\begin{tikzpicture}[x=1mm,y=1mm]
+% All three previews use the same 16:9 frame size so the source slides
+% are compared consistently without visual rescaling between examples.
+% The title slide is centered in the first row; the two technical examples
+% share the second row. All three retain the same 16:9 dimensions.
+\node[inner sep=0pt,fill=White,draw=Line,line width=.7pt,drop shadow={opacity=.15}] (p1) at (0,8)
+  {\includegraphics[page=1,width=75mm,height=42.2mm,keepaspectratio]{../../../presentation-template/preview/technical-presentation-template-preview.pdf}};
+\node[inner sep=0pt,fill=White,draw=Line,line width=.7pt,drop shadow={opacity=.15}] (p2) at (-41,-48)
+  {\includegraphics[page=3,width=75mm,height=42.2mm,keepaspectratio]{../../../presentation-template/preview/technical-presentation-template-preview.pdf}};
+\node[inner sep=0pt,fill=White,draw=Line,line width=.7pt,drop shadow={opacity=.15}] (p3) at (41,-48)
+  {\includegraphics[page=5,width=75mm,height=42.2mm,keepaspectratio]{../../../presentation-template/preview/technical-presentation-template-preview.pdf}};
+\node[rounded corners=2mm,fill=Navy,text=White,font=\sffamily\bfseries\fontsize{8}{9}\selectfont,inner xsep=3mm,inner ysep=1.4mm] at ([yshift=-5mm]p1.south) {TITLE SYSTEM};
+\node[rounded corners=2mm,fill=Blue,text=White,font=\sffamily\bfseries\fontsize{8}{9}\selectfont,inner xsep=3mm,inner ysep=1.4mm] at ([yshift=-5mm]p2.south) {SYSTEM MODEL};
+\node[rounded corners=2mm,fill=Green,text=White,font=\sffamily\bfseries\fontsize{8}{9}\selectfont,inner xsep=3mm,inner ysep=1.4mm] at ([yshift=-5mm]p3.south) {RESULTS};
+\end{tikzpicture}
+\end{center}
+\vspace{5mm}
+\begin{center}
+\pill{LECTURES}\quad\pill{DESIGN REVIEWS}\quad\pill{RESEARCH UPDATES}\quad\pill{ENGINEERING BRIEFINGS}
+\end{center}
+\end{minipage}\slidefooter
+\newpage
+
+%6 ieee
+\pagecolor{Mist}\setslide{6}
+\vspace*{18mm}\hspace*{16mm}\begin{minipage}{184mm}
+\slideheading{Enhanced IEEE Paper Template}{A complete two-page beamforming example proves that the template supports equations, vector figures, tables, citations, and bibliography management.}
+\vspace{7mm}
+\begin{center}
+\begin{tikzpicture}
+\node[inner sep=0pt,fill=White,draw=Line,line width=.7pt,drop shadow={opacity=.15}] (i1)
+  {\includegraphics[page=1,width=70mm]{../../../ieee-paper-template/preview/ieee-paper-template-preview.pdf}};
+\node[inner sep=0pt,fill=White,draw=Line,line width=.7pt,drop shadow={opacity=.15},right=12mm of i1] (i2)
+  {\includegraphics[page=2,width=70mm]{../../../ieee-paper-template/preview/ieee-paper-template-preview.pdf}};
+\node[rounded corners=2mm,fill=Navy,text=White,font=\sffamily\bfseries\fontsize{8}{9}\selectfont,inner xsep=3mm,inner ysep=1.5mm] at ([yshift=-5mm]i1.south) {MODELS + EQUATIONS};
+\node[rounded corners=2mm,fill=Blue,text=White,font=\sffamily\bfseries\fontsize{8}{9}\selectfont,inner xsep=3mm,inner ysep=1.5mm] at ([yshift=-5mm]i2.south) {FIGURES + TABLES + REFERENCES};
+\end{tikzpicture}
+\end{center}
+\vspace{10mm}
+\begin{tikzpicture}
+\node[rounded corners=4mm,fill=Navy,inner sep=6mm,text width=169mm,text=White] {
+\sffamily\fontsize{11}{15}\selectfont
+\textbf{Reusable publication workflow:} IEEEtran source, separate BibTeX database, cross-referenced equations and figures, and a curated rendered preview.};
+\end{tikzpicture}
+\end{minipage}\slidefooter
+\newpage
+
+%7 workflow
+\pagecolor{White}\setslide{7}
+\vspace*{18mm}\hspace*{16mm}\begin{minipage}{184mm}
+\slideheading{Documentation treated as an engineering system}{Meaningful changes are isolated, reviewed, documented, and merged through a repeatable repository workflow.}
+\vspace{11mm}
+\begin{center}
+\begin{tikzpicture}[node distance=7mm, every node/.style={font=\sffamily\bfseries\fontsize{10}{12}\selectfont}]
+\node[rounded corners=3mm,fill=Blue!10,draw=Blue!30,minimum width=31mm,minimum height=22mm] (b) {Feature branch};
+\node[rounded corners=3mm,fill=Cyan!10,draw=Cyan!35,minimum width=31mm,minimum height=22mm,right=of b] (v) {Validation};
+\node[rounded corners=3mm,fill=Green!10,draw=Green!35,minimum width=31mm,minimum height=22mm,right=of v] (h) {Handoff};
+\node[rounded corners=3mm,fill=Blue!10,draw=Blue!30,minimum width=31mm,minimum height=22mm,right=of h] (p) {Pull request};
+\node[rounded corners=3mm,fill=Navy,text=White,minimum width=31mm,minimum height=22mm,right=of p] (m) {Controlled merge};
+\draw[-{Latex[length=2.5mm]},Slate,line width=1pt] (b)--(v);
+\draw[-{Latex[length=2.5mm]},Slate,line width=1pt] (v)--(h);
+\draw[-{Latex[length=2.5mm]},Slate,line width=1pt] (h)--(p);
+\draw[-{Latex[length=2.5mm]},Slate,line width=1pt] (p)--(m);
+\end{tikzpicture}
+\end{center}
+\vspace{13mm}
+\begin{center}
+\begin{tikzpicture}
+\node[rounded corners=4mm,fill=Mist,draw=Line,inner sep=8mm,text width=156mm] {\sffamily\fontsize{13}{18}\selectfont\color{Ink}\textbf{Why it matters:} the repository records not only the final files, but also implementation scope, validation evidence, limitations, rollback guidance, and follow-up work.};
+\end{tikzpicture}
+\end{center}
+\end{minipage}\slidefooter
+\newpage
+
+%8 close
+\pagecolor{Navy}\setslide{8}
+\begin{tikzpicture}[remember picture,overlay]
+\fill[Blue] ([xshift=-15mm,yshift=-25mm]current page.north east) circle (45mm);
+\node[anchor=north west,text width=170mm] at ([xshift=22mm,yshift=-37mm]current page.north west) {{\sffamily\bfseries\fontsize{29}{33}\selectfont\color{White}Built for engineering work\\that needs to be understood,\\reviewed, and reused.}\par\vspace{9mm}{\sffamily\fontsize{13}{18}\selectfont\color{White!82}Academic projects \textbullet\ Research reports \textbullet\ Design reviews\\Technical consulting \textbullet\ Reproducible engineering workflows}};
+\node[rounded corners=4mm,fill=White,minimum width=170mm,minimum height=35mm] at ([yshift=-42mm]current page.center) {};
+\node[text width=150mm,align=center] at ([yshift=-42mm]current page.center) {{\sffamily\bfseries\fontsize{13}{16}\selectfont\color{Navy}Explore the repository}\\[2mm]{\sffamily\fontsize{10.5}{13}\selectfont\color{Blue}github.com/hmolhem/engineering-latex-templates}};
+\node[anchor=south west,text=White] at ([xshift=22mm,yshift=31mm]current page.south west) {\sffamily\bfseries\fontsize{11}{13}\selectfont Hossein Molhem};
+\node[anchor=south east,text=White!80] at ([xshift=-22mm,yshift=31mm]current page.south east) {\sffamily\fontsize{9}{11}\selectfont Engineering documentation \textbullet\ RF \textbullet\ Antennas};
+\end{tikzpicture}
+\end{document}

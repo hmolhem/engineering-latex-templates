@@ -13,6 +13,10 @@
 - Added Handoff `H002` documenting preview placement, maintenance, and rollback.
 - Replaced the minimal IEEE starter with a complete illustrative beamforming paper containing equations, figures, tables, citations, BibTeX references, cross-references, and quantitative synthetic results.
 - Expanded the IEEE template documentation and added Handoff `H003` for the enhancement workflow.
+- Added a reusable LaTeX LinkedIn-carousel system using a 4:5 portrait page format.
+- Added an eight-page repository showcase carousel with real rendered previews from the report, presentation, and IEEE paper templates.
+- Added a narrow `.gitignore` exception for the curated LinkedIn carousel PDF.
+- Added Handoff `H004` documenting the carousel implementation, validation, and maintenance workflow.
 
 ## v0.2.0 — Standardized 5G-report architecture
 
