@@ -1,23 +1,167 @@
 # Engineering LaTeX Templates
 
-Reusable LaTeX templates for engineering reports, technical presentations, research papers, and
-project documentation.
+Reusable LaTeX templates for engineering reports, technical presentations, research papers, and project documentation.
 
-## Templates
+This repository is intended to serve as a stable, version-controlled documentation system for recurring academic, research, industrial, and consulting work. The report template is based on the standardized architecture used in the latest 5G phased-array project report.
 
-- **`report-template/`** — standardized modular engineering report derived from the latest 5G
-  phased-array report structure; fully populated with fictional examples demonstrating the
-  available environments, figures, tables, code styles, appendices, and references.
-- **`presentation-template/`** — reusable Beamer starting point.
-- **`ieee-paper-template/`** — compact IEEE-style paper starting point.
+## Repository contents
 
-## Recommended workflow
+```text
+engineering-latex-templates/
+├── README.md
+├── CHANGELOG.md
+├── .gitignore
+├── docs/
+│   ├── WORKFLOW.md
+│   ├── HANDOFF_INDEX.md
+│   ├── HANDOFF_TEMPLATE.md
+│   └── handoffs/
+├── report-template/
+│   ├── README.md
+│   ├── main.tex
+│   ├── setup/
+│   ├── frontmatter/
+│   ├── content/
+│   ├── appendices/
+│   ├── figures/
+│   ├── codes/
+│   └── references.bib
+├── presentation-template/
+│   ├── README.md
+│   ├── main.tex
+│   ├── sections/
+│   ├── figures/
+│   └── speaker-notes/
+├── ieee-paper-template/
+│   ├── README.md
+│   ├── main.tex
+│   ├── figures/
+│   └── references.bib
+└── examples/
+```
 
-1. Create a new repository from this template repository.
-2. Keep the setup files stable unless a formatting change is intentional.
-3. Edit project metadata in `main.tex`.
-4. Manage report sections through `content/00_report_body.tex`.
-5. Compile locally with `latexmk -pdf main.tex` or upload the folder to Overleaf.
+## Available templates
 
-The report example uses invented technical content and placeholder branding. Replace all examples
-with verified project-specific material before publication or submission.
+### Standard engineering report
+
+`report-template/`
+
+A modular report system with:
+
+- configurable metadata in `main.tex`
+- optional cover logo
+- standardized title-page typography
+- configurable headers on all non-cover pages
+- separate objective and abstract files
+- a single content menu in `content/00_report_body.tex`
+- a single appendix menu in `appendices/00_appendices.tex`
+- reusable theorem, definition, example, problem, code, matrix, and engineering environments
+- bibliography support through `biblatex` and Biber
+
+See [`report-template/README.md`](report-template/README.md).
+
+### Technical presentation
+
+`presentation-template/`
+
+A reusable Beamer template with section-based organization and speaker-note support.
+
+See [`presentation-template/README.md`](presentation-template/README.md).
+
+### IEEE paper starter
+
+`ieee-paper-template/`
+
+A lightweight IEEE-style starting point for conference or journal manuscripts. The official template and author instructions of the target venue always take precedence.
+
+See [`ieee-paper-template/README.md`](ieee-paper-template/README.md).
+
+## Recommended usage
+
+1. Create a new repository from this template repository, or copy only the required template folder.
+2. Edit project metadata in `main.tex`.
+3. Replace fictional example content with verified project-specific material.
+4. Keep shared setup files stable unless a formatting change is intentional.
+5. Compile locally with `latexmk` or upload the project folder to Overleaf.
+
+Example:
+
+```bash
+git clone https://github.com/hmolhem/engineering-latex-templates.git
+cd engineering-latex-templates/report-template
+latexmk -pdf main.tex
+```
+
+## Development workflow
+
+Direct development on `main` is not allowed by project convention. Every change must be made on a dedicated branch and merged through a pull request.
+
+Typical branch names:
+
+```text
+feature/<short-description>
+fix/<short-description>
+docs/<short-description>
+refactor/<short-description>
+release/<version>
+```
+
+Full workflow instructions are maintained in [`docs/WORKFLOW.md`](docs/WORKFLOW.md).
+
+## Handoff documentation policy
+
+Every meaningful change must include a Markdown handoff file under:
+
+```text
+docs/handoffs/
+```
+
+The handoff must record:
+
+- purpose and scope
+- affected files
+- design decisions
+- implementation summary
+- validation performed
+- known limitations
+- follow-up work
+- related branch, commit, and pull request
+
+Every new handoff must also be registered in [`docs/HANDOFF_INDEX.md`](docs/HANDOFF_INDEX.md). Use [`docs/HANDOFF_TEMPLATE.md`](docs/HANDOFF_TEMPLATE.md) as the required starting structure.
+
+## Compilation
+
+The standard report template uses `biblatex` with Biber:
+
+```bash
+latexmk -pdf main.tex
+```
+
+Manual sequence:
+
+```bash
+pdflatex main.tex
+biber main
+pdflatex main.tex
+pdflatex main.tex
+```
+
+## Versioning
+
+Repository changes are summarized in [`CHANGELOG.md`](CHANGELOG.md). Stable milestones should be tagged using semantic versioning:
+
+```text
+vMAJOR.MINOR.PATCH
+```
+
+Examples:
+
+```text
+v0.2.0
+v1.0.0
+v1.1.0
+```
+
+## Publication and reuse note
+
+The included report content is fictional and demonstrates template capabilities only. Replace all example text, figures, results, institutional names, logos, and references before academic or professional submission.
