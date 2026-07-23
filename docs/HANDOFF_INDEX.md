@@ -6,7 +6,8 @@ This index provides a chronological entry point to the repository's implementati
 
 | Date | ID | Title | Area | Branch | Status | Handoff |
 |---|---|---|---|---|---|---|
-| 2026-07-22 | `H001` | Repository documentation and controlled development workflow | Repository-wide | `docs/repository-documentation-and-handoffs` | Ready for review | [`H001-repository-documentation-and-workflow.md`](handoffs/H001-repository-documentation-and-workflow.md) |
+| 2026-07-22 | `H001` | Repository documentation and controlled development workflow | Repository-wide | `docs/repository-documentation-and-handoffs` | Merged in PR #1 | [`H001-repository-documentation-and-workflow.md`](handoffs/H001-repository-documentation-and-workflow.md) |
+| 2026-07-22 | `H002` | Template PDF previews | All templates | `docs/add-template-pdf-previews` | Ready for review | [`H002-template-pdf-previews.md`](handoffs/H002-template-pdf-previews.md) |
 
 ## Naming convention
 
@@ -20,7 +21,7 @@ Examples:
 
 ```text
 H001-repository-documentation-and-workflow.md
-H002-report-header-refactor.md
+H002-template-pdf-previews.md
 H003-presentation-notes-layout.md
 ```
 
