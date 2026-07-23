@@ -1,17 +1,36 @@
 \documentclass[conference]{IEEEtran}
 
+% -------------------------------------------------
+% Packages
+% -------------------------------------------------
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 \usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{siunitx}
 \usepackage{cite}
 \usepackage{url}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+\usepackage[hidelinks]{hyperref}
 
-\title{Research Paper Title}
+% Keep table numbers aligned and compact.
+\sisetup{
+  detect-all,
+  table-number-alignment=center
+}
+
+% -------------------------------------------------
+% Paper metadata -- replace for a real submission
+% -------------------------------------------------
+\title{A Compact Reproducible Example of Conventional and MVDR Beamforming}
 
 \author{%
 \IEEEauthorblockN{Hossein Molhem}
-\IEEEauthorblockA{Department or Organization\\
-City, State, Country\\
+\IEEEauthorblockA{Department of Electrical and Computer Engineering\\
+Kennesaw State University\\
+Marietta, Georgia, USA\\
 email@example.com}
 }
 
@@ -19,28 +38,196 @@ email@example.com}
 \maketitle
 
 \begin{abstract}
-State the problem, method, principal quantitative result, and contribution.
+This paper is a self-contained IEEE-style example intended to demonstrate a complete technical-paper workflow rather than claim a new research contribution. A narrowband uniform linear array is modeled, a conventional beamformer is compared with a diagonally loaded minimum-variance distortionless-response (MVDR) beamformer, and reproducible synthetic results are reported. The example includes mathematical development, a processing diagram, a publication-quality plot, two tables, cross-references, and a BibTeX bibliography. For the stated eight-element scenario, the illustrative simulation produces an output signal-to-interference-plus-noise ratio of \SI{3.49}{dB} for conventional beamforming and \SI{15.85}{dB} for MVDR beamforming.
 \end{abstract}
 
 \begin{IEEEkeywords}
-engineering, modeling, simulation, signal processing
+array signal processing, beamforming, IEEEtran, MVDR, reproducible engineering documentation
 \end{IEEEkeywords}
 
 \section{Introduction}
-Introduce the problem, research gap, and contribution. Add citations using the official bibliography workflow required by the target venue.
+Array processing combines measurements from spatially distributed sensors to reinforce signals arriving from selected directions while suppressing interference and noise. Conventional beamforming uses a fixed steering vector, whereas adaptive methods use estimated second-order statistics to shape the spatial response \cite{vanveen1988,vt2002}. The MVDR formulation is closely related to the high-resolution spatial-spectrum approach introduced by Capon \cite{capon1969}.
 
-\section{Methodology}
-Describe the model, algorithm, simulation, experiment, or implementation.
+This paper serves as a reusable IEEE template example. Its technical content is deliberately compact but complete enough to demonstrate equations, figures, tables, citations, labels, and cross-references. The numerical values are generated from a documented synthetic experiment and should be replaced with verified project-specific data before publication.
 
-\section{Results}
-Present quantitative evidence and comparisons.
+The principal template features demonstrated here are:
+\begin{itemize}
+    \item a standard IEEE conference author block, abstract, and keywords;
+    \item numbered equations with consistent vector and matrix notation;
+    \item an in-document TikZ workflow diagram and an external vector figure;
+    \item compact tables using \texttt{booktabs} and \texttt{siunitx}; and
+    \item a BibTeX database formatted with the IEEE bibliography style.
+\end{itemize}
+
+\section{Signal Model}
+Consider an $M$-element uniform linear array with inter-element spacing $d$. The complex baseband snapshot at time index $k$ is modeled as
+\begin{equation}
+\mathbf{x}[k]
+=
+\mathbf{a}(\theta_s)s[k]
++
+\mathbf{a}(\theta_i)i[k]
++
+\mathbf{n}[k],
+\label{eq:snapshot_model}
+\end{equation}
+where $s[k]$ is the desired signal, $i[k]$ is an interferer, and $\mathbf{n}[k]$ is spatially white noise. For wavelength $\lambda$, the steering vector is
+\begin{equation}
+\mathbf{a}(\theta)
+=
+\begin{bmatrix}
+1 & e^{j\mu(\theta)} & \cdots & e^{j(M-1)\mu(\theta)}
+\end{bmatrix}^{\mathsf{T}},
+\label{eq:steering_vector}
+\end{equation}
+with
+\begin{equation}
+\mu(\theta)=2\pi\frac{d}{\lambda}\sin\theta.
+\label{eq:spatial_frequency}
+\end{equation}
+
+Using $K$ snapshots, the sample covariance matrix is estimated as \cite{krim1996,stoica2005}
+\begin{equation}
+\widehat{\mathbf{R}}_x
+=
+\frac{1}{K}
+\sum_{k=1}^{K}
+\mathbf{x}[k]\mathbf{x}^{\mathsf{H}}[k].
+\label{eq:sample_covariance}
+\end{equation}
+
+\section{Beamformer Design}
+The conventional beamformer steered toward $\theta_s$ is
+\begin{equation}
+\mathbf{w}_{\mathrm{CBF}}
+=
+\frac{\mathbf{a}(\theta_s)}{M}.
+\label{eq:cbf_weights}
+\end{equation}
+
+For finite data, a diagonally loaded covariance estimate is used:
+\begin{equation}
+\widehat{\mathbf{R}}_{\delta}
+=
+\widehat{\mathbf{R}}_x+\delta\mathbf{I},
+\qquad
+\delta=10^{-2}\frac{\operatorname{tr}(\widehat{\mathbf{R}}_x)}{M}.
+\label{eq:diagonal_loading}
+\end{equation}
+The corresponding MVDR weights are
+\begin{equation}
+\mathbf{w}_{\mathrm{MVDR}}
+=
+\frac{\widehat{\mathbf{R}}_{\delta}^{-1}\mathbf{a}(\theta_s)}
+{\mathbf{a}^{\mathsf{H}}(\theta_s)
+\widehat{\mathbf{R}}_{\delta}^{-1}
+\mathbf{a}(\theta_s)}.
+\label{eq:mvdr_weights}
+\end{equation}
+Equation~\eqref{eq:mvdr_weights} enforces a distortionless response in the desired direction while minimizing total output power.
+
+The normalized spatial response used for plotting is
+\begin{equation}
+B(\theta)
+=
+20\log_{10}
+\left(
+\frac{|\mathbf{w}^{\mathsf{H}}\mathbf{a}(\theta)|}
+{\max_{\vartheta}|\mathbf{w}^{\mathsf{H}}\mathbf{a}(\vartheta)|}
+\right).
+\label{eq:beam_pattern}
+\end{equation}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+    node distance=4.5mm and 5mm,
+    every node/.style={font=\scriptsize},
+    block/.style={draw, rounded corners, align=center, minimum height=7mm, minimum width=19mm},
+    arrow/.style={-Latex, thick}
+]
+\node[block] (model) {Array signal\\model};
+\node[block, right=of model] (snap) {Synthetic\\snapshots};
+\node[block, right=of snap] (cov) {Covariance\\estimate};
+\node[block, below=of cov] (weights) {CBF and MVDR\\weights};
+\node[block, left=of weights] (pattern) {Pattern and\\metric evaluation};
+\node[block, left=of pattern] (report) {Tables, figures,\\and discussion};
+
+\draw[arrow] (model) -- (snap);
+\draw[arrow] (snap) -- (cov);
+\draw[arrow] (cov) -- (weights);
+\draw[arrow] (weights) -- (pattern);
+\draw[arrow] (pattern) -- (report);
+\end{tikzpicture}
+\caption{Reproducible processing and reporting workflow used in the illustrative example.}
+\label{fig:workflow}
+\end{figure}
+
+\section{Illustrative Experiment}
+The processing sequence is summarized in Fig.~\ref{fig:workflow}. A desired source and a single interferer are generated as independent circular complex Gaussian processes. The array receives $K=300$ snapshots. Table~\ref{tab:simulation_parameters} lists the complete configuration needed to reproduce the example.
+
+\begin{table}[t]
+\caption{Synthetic Simulation Parameters}
+\label{tab:simulation_parameters}
+\centering
+\begin{tabular}{@{}lc@{}}
+\toprule
+Parameter & Value \\
+\midrule
+Array elements, $M$ & 8 \\
+Element spacing, $d/\lambda$ & 0.5 \\
+Desired direction, $\theta_s$ & \SI{10}{\degree} \\
+Interferer direction, $\theta_i$ & \SI{30}{\degree} \\
+Snapshots, $K$ & 300 \\
+Input SNR & \SI{10}{dB} \\
+Input INR & \SI{20}{dB} \\
+Random seed & 7 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The output signal-to-interference-plus-noise ratio is calculated from
+\begin{equation}
+\mathrm{SINR}_{\mathrm{out}}
+=
+\frac{\mathbf{w}^{\mathsf{H}}\mathbf{R}_s\mathbf{w}}
+{\mathbf{w}^{\mathsf{H}}(\mathbf{R}_i+\mathbf{R}_n)\mathbf{w}}.
+\label{eq:output_sinr}
+\end{equation}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/beam_patterns.pdf}
+\caption{Normalized conventional and MVDR spatial responses for the synthetic eight-element array. The desired signal is at \SI{10}{\degree}, and the interferer is at \SI{30}{\degree}.}
+\label{fig:beam_patterns}
+\end{figure}
+
+\section{Results and Discussion}
+Figure~\ref{fig:beam_patterns} shows that both methods preserve the desired look direction, but MVDR places a substantially deeper response minimum near the interferer. The quantitative values in Table~\ref{tab:results} are produced by the included synthetic configuration rather than copied from an external study.
+
+\begin{table}[t]
+\caption{Illustrative Beamformer Results}
+\label{tab:results}
+\centering
+\scriptsize
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Method & \makecell{Output\\SINR (dB)} & \makecell{Response at\\$\theta_i$ (dB)} & \makecell{White-noise\\gain (dB)} \\
+\midrule
+CBF  & 3.49  & -13.61 & 9.03 \\
+MVDR & 15.85 & -32.13 & 7.02 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The MVDR design improves output SINR by approximately \SI{12.36}{dB} for this scenario. That gain is accompanied by lower white-noise gain, illustrating the practical tradeoff between adaptive interference suppression and robustness. In a research paper, this section should also include sensitivity studies, confidence intervals, computational cost, hardware or measurement uncertainty, and comparisons against credible baselines.
+
+The example also demonstrates why a polished paper needs more than formulas. Equations~\eqref{eq:snapshot_model}--\eqref{eq:output_sinr} define the method, Fig.~\ref{fig:workflow} documents the workflow, Fig.~\ref{fig:beam_patterns} provides visual evidence, and Tables~\ref{tab:simulation_parameters} and~\ref{tab:results} make assumptions and results auditable.
 
 \section{Conclusion}
-Summarize the contribution, limitation, and future work.
+This IEEE-style sample demonstrates a reproducible beamforming experiment. The document demonstrates a realistic title block, abstract, citations, cross-referenced equations, two figures, two tables, and a BibTeX bibliography. The technical example should be treated as illustrative template content. For an actual submission, authors must replace all synthetic values, verify every citation, follow the current instructions of the target IEEE venue, and document the evidence supporting each conclusion.
 
-\begin{thebibliography}{1}
-\bibitem{example}
-A. Author, ``Example reference title,'' \emph{Journal or Conference}, year.
-\end{thebibliography}
+\bibliographystyle{IEEEtran}
+\bibliography{references}
 
 \end{document}
