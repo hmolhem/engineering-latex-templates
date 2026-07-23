@@ -25,17 +25,20 @@ engineering-latex-templates/
 │   ├── appendices/
 │   ├── figures/
 │   ├── codes/
+│   ├── preview/
 │   └── references.bib
 ├── presentation-template/
 │   ├── README.md
 │   ├── main.tex
 │   ├── sections/
 │   ├── figures/
-│   └── speaker-notes/
+│   ├── speaker-notes/
+│   └── preview/
 ├── ieee-paper-template/
 │   ├── README.md
 │   ├── main.tex
 │   ├── figures/
+│   ├── preview/
 │   └── references.bib
 └── examples/
 ```
@@ -75,6 +78,16 @@ See [`presentation-template/README.md`](presentation-template/README.md).
 A lightweight IEEE-style starting point for conference or journal manuscripts. The official template and author instructions of the target venue always take precedence.
 
 See [`ieee-paper-template/README.md`](ieee-paper-template/README.md).
+
+## Rendered PDF previews
+
+The following curated PDFs show the current rendered appearance of each template:
+
+- [Engineering report template preview](report-template/preview/engineering-report-template-preview.pdf)
+- [Technical presentation template preview](presentation-template/preview/technical-presentation-template-preview.pdf)
+- [IEEE paper template preview](ieee-paper-template/preview/ieee-paper-template-preview.pdf)
+
+Generated PDFs remain ignored by default. These three explicitly named preview files are intentionally version-controlled and should be refreshed whenever a future template change materially affects rendered output.
 
 ## Recommended usage
 

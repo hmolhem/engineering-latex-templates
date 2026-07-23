@@ -8,6 +8,9 @@
 - Added a chronological handoff index and the first repository handoff record.
 - Expanded the README files for the report, presentation, and IEEE paper templates.
 - Added a pull-request checklist template for consistent reviews.
+- Added curated PDF previews for the report, presentation, and IEEE paper templates.
+- Added narrow `.gitignore` exceptions so only the named preview PDFs are version-controlled.
+- Added Handoff `H002` documenting preview placement, maintenance, and rollback.
 
 ## v0.2.0 — Standardized 5G-report architecture
 
