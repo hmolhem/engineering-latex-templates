@@ -62,83 +62,90 @@
 %4 report
 \pagecolor{Mist}\setslide{4}
 \vspace*{18mm}\hspace*{16mm}\begin{minipage}{184mm}
-\slideheading{Engineering Report Template}{Designed for simulation studies, laboratory reports, design reviews, and technical project documentation.}
-\vspace{8mm}
-\begin{minipage}[t]{82mm}
+\slideheading{Engineering Report Template}{Real pages from the compiled report show the complete path from professional cover design to equations, figures, tables, and source code.}
+\vspace{7mm}
+\begin{center}
 \begin{tikzpicture}
-\node[fill=White,draw=Line,minimum width=72mm,minimum height=102mm,drop shadow={opacity=.12}] (page) {};
-\fill[Navy] ([xshift=0mm,yshift=-1mm]page.north west) rectangle ([yshift=-25mm]page.north east);
-\node[text=White,font=\sffamily\bfseries\fontsize{12}{14}\selectfont,align=left,text width=57mm] at ([yshift=-13mm]page.north) {ENGINEERING\\PROJECT REPORT};
-\draw[Blue,line width=2pt] ([xshift=7mm,yshift=-38mm]page.north west)--([xshift=-7mm,yshift=-38mm]page.north east);
-\foreach \y in {48,56,64,72,80,88}{\draw[Line,line width=1.2pt] ([xshift=8mm,yshift=-\y mm]page.north west)--([xshift=-8mm,yshift=-\y mm]page.north east);}
-\node[rounded corners=2mm,fill=Blue!10,minimum width=24mm,minimum height=11mm] at ([xshift=20mm,yshift=14mm]page.south west) {};
-\node[rounded corners=2mm,fill=Cyan!12,minimum width=24mm,minimum height=11mm] at ([xshift=-20mm,yshift=14mm]page.south east) {};
+\node[inner sep=0pt,fill=White,draw=Line,line width=.7pt,drop shadow={opacity=.14}] (r1)
+  {\includegraphics[page=1,width=49mm]{../../../report-template/preview/engineering-report-template-preview.pdf}};
+\node[inner sep=0pt,fill=White,draw=Line,line width=.7pt,drop shadow={opacity=.14},right=8mm of r1] (r2)
+  {\includegraphics[page=11,width=49mm]{../../../report-template/preview/engineering-report-template-preview.pdf}};
+\node[inner sep=0pt,fill=White,draw=Line,line width=.7pt,drop shadow={opacity=.14},right=8mm of r2] (r3)
+  {\includegraphics[page=13,width=49mm]{../../../report-template/preview/engineering-report-template-preview.pdf}};
+\node[rounded corners=2mm,fill=Navy,text=White,font=\sffamily\bfseries\fontsize{8}{9}\selectfont,inner xsep=3mm,inner ysep=1.5mm] at ([yshift=-5mm]r1.south) {COVER};
+\node[rounded corners=2mm,fill=Blue,text=White,font=\sffamily\bfseries\fontsize{8}{9}\selectfont,inner xsep=3mm,inner ysep=1.5mm] at ([yshift=-5mm]r2.south) {FIGURES + TABLES};
+\node[rounded corners=2mm,fill=Cyan,text=White,font=\sffamily\bfseries\fontsize{8}{9}\selectfont,inner xsep=3mm,inner ysep=1.5mm] at ([yshift=-5mm]r3.south) {SOURCE CODE};
 \end{tikzpicture}
-\end{minipage}\hfill
-\begin{minipage}[t]{92mm}
-\vspace{2mm}
+\end{center}
+\vspace{10mm}
+\begin{tikzpicture}
+\node[rounded corners=4mm,fill=White,draw=Line,inner sep=6mm,text width=170mm] {
+\begin{minipage}{78mm}
 \begin{carouselitemize}
-\item Modular title page and front matter
-\item Configurable headers, metadata, and branding
-\item Equations, figures, tables, and cross-references
-\item Code listings, appendices, and bibliography
-\item Stable folder structure for repeatable projects
+\item Modular front matter and metadata
+\item Equations and theorem environments
 \end{carouselitemize}
-\vspace{8mm}
-\begin{tikzpicture}
-\node[rounded corners=4mm,fill=White,draw=Line,inner sep=6mm,text width=78mm] {\sffamily\fontsize{11}{15}\selectfont\color{Ink}\textbf{Use case:} antenna simulation reports, laboratory validation, engineering analysis, and client-facing technical documentation.};
+\end{minipage}\hfill
+\begin{minipage}{78mm}
+\begin{carouselitemize}
+\item Figures, tables, code, and appendices
+\item Repeatable structure for engineering studies
+\end{carouselitemize}
+\end{minipage}};
 \end{tikzpicture}
-\end{minipage}
 \end{minipage}\slidefooter
 \newpage
 
 %5 presentation
 \pagecolor{White}\setslide{5}
 \vspace*{18mm}\hspace*{16mm}\begin{minipage}{184mm}
-\slideheading{Technical Presentation Template}{A reusable framework for lectures, design reviews, research updates, and engineering briefings.}
-\vspace{9mm}
+\slideheading{Technical Presentation Template}{The compiled deck demonstrates a consistent visual system for opening context, presenting the engineering model, and communicating quantitative results.}
+\vspace{7mm}
 \begin{center}
-\begin{tikzpicture}
-\node[fill=Navy,rounded corners=3mm,minimum width=154mm,minimum height=83mm] (s) {};
-\node[anchor=north west,text width=90mm] at ([xshift=11mm,yshift=-11mm]s.north west) {{\sffamily\bfseries\fontsize{19}{22}\selectfont\color{White}From equations to\\engineering decisions}\par\vspace{5mm}{\sffamily\fontsize{10}{14}\selectfont\color{White!80}A consistent visual system keeps technical storytelling clear and auditable.}};
-\node[rounded corners=3mm,fill=White,minimum width=39mm,minimum height=48mm] at ([xshift=-29mm]s.east) {};
-\draw[Blue,line width=2pt] ([xshift=-44mm,yshift=12mm]s.east)--([xshift=-14mm,yshift=12mm]s.east);
-\draw[Cyan,line width=2pt] ([xshift=-44mm,yshift=3mm]s.east)--([xshift=-22mm,yshift=3mm]s.east);
-\draw[Green,line width=2pt] ([xshift=-44mm,yshift=-6mm]s.east)--([xshift=-29mm,yshift=-6mm]s.east);
+\begin{tikzpicture}[x=1mm,y=1mm]
+% All three previews use the same 16:9 frame size so the source slides
+% are compared consistently without visual rescaling between examples.
+% The title slide is centered in the first row; the two technical examples
+% share the second row. All three retain the same 16:9 dimensions.
+\node[inner sep=0pt,fill=White,draw=Line,line width=.7pt,drop shadow={opacity=.15}] (p1) at (0,8)
+  {\includegraphics[page=1,width=75mm,height=42.2mm,keepaspectratio]{../../../presentation-template/preview/technical-presentation-template-preview.pdf}};
+\node[inner sep=0pt,fill=White,draw=Line,line width=.7pt,drop shadow={opacity=.15}] (p2) at (-41,-48)
+  {\includegraphics[page=3,width=75mm,height=42.2mm,keepaspectratio]{../../../presentation-template/preview/technical-presentation-template-preview.pdf}};
+\node[inner sep=0pt,fill=White,draw=Line,line width=.7pt,drop shadow={opacity=.15}] (p3) at (41,-48)
+  {\includegraphics[page=5,width=75mm,height=42.2mm,keepaspectratio]{../../../presentation-template/preview/technical-presentation-template-preview.pdf}};
+\node[rounded corners=2mm,fill=Navy,text=White,font=\sffamily\bfseries\fontsize{8}{9}\selectfont,inner xsep=3mm,inner ysep=1.4mm] at ([yshift=-5mm]p1.south) {TITLE SYSTEM};
+\node[rounded corners=2mm,fill=Blue,text=White,font=\sffamily\bfseries\fontsize{8}{9}\selectfont,inner xsep=3mm,inner ysep=1.4mm] at ([yshift=-5mm]p2.south) {SYSTEM MODEL};
+\node[rounded corners=2mm,fill=Green,text=White,font=\sffamily\bfseries\fontsize{8}{9}\selectfont,inner xsep=3mm,inner ysep=1.4mm] at ([yshift=-5mm]p3.south) {RESULTS};
 \end{tikzpicture}
 \end{center}
-\vspace{8mm}
-\begin{center}\pill{STRUCTURED STORY}\quad\pill{SPEAKER NOTES}\quad\pill{REUSABLE SECTIONS}\quad\pill{DESIGN REVIEW READY}\end{center}
+\vspace{5mm}
+\begin{center}
+\pill{LECTURES}\quad\pill{DESIGN REVIEWS}\quad\pill{RESEARCH UPDATES}\quad\pill{ENGINEERING BRIEFINGS}
+\end{center}
 \end{minipage}\slidefooter
 \newpage
 
 %6 ieee
 \pagecolor{Mist}\setslide{6}
 \vspace*{18mm}\hspace*{16mm}\begin{minipage}{184mm}
-\slideheading{Enhanced IEEE Paper Template}{A complete two-column example demonstrating equations, figures, tables, citations, and bibliography management.}
+\slideheading{Enhanced IEEE Paper Template}{A complete two-page beamforming example proves that the template supports equations, vector figures, tables, citations, and bibliography management.}
 \vspace{7mm}
-\begin{minipage}[t]{92mm}
+\begin{center}
 \begin{tikzpicture}
-\node[fill=White,draw=Line,minimum width=80mm,minimum height=108mm] (p) {};
-\node[font=\sffamily\bfseries\fontsize{8.5}{10}\selectfont,text=Navy,text width=68mm,align=center] at ([yshift=-10mm]p.north) {A COMPACT REPRODUCIBLE EXAMPLE OF CONVENTIONAL AND MVDR BEAMFORMING};
-\foreach \x in {-18,18}{\foreach \y in {-32,-40,-48,-56,-64,-72,-80,-88}{\draw[Line,line width=.7pt] ([xshift=\x mm-14mm,yshift=\y mm]p.north)--([xshift=\x mm+14mm,yshift=\y mm]p.north);}}
-\draw[Blue,line width=1.5pt] ([xshift=-32mm,yshift=-94mm]p.north)--([xshift=31mm,yshift=-94mm]p.north);
+\node[inner sep=0pt,fill=White,draw=Line,line width=.7pt,drop shadow={opacity=.15}] (i1)
+  {\includegraphics[page=1,width=70mm]{../../../ieee-paper-template/preview/ieee-paper-template-preview.pdf}};
+\node[inner sep=0pt,fill=White,draw=Line,line width=.7pt,drop shadow={opacity=.15},right=12mm of i1] (i2)
+  {\includegraphics[page=2,width=70mm]{../../../ieee-paper-template/preview/ieee-paper-template-preview.pdf}};
+\node[rounded corners=2mm,fill=Navy,text=White,font=\sffamily\bfseries\fontsize{8}{9}\selectfont,inner xsep=3mm,inner ysep=1.5mm] at ([yshift=-5mm]i1.south) {MODELS + EQUATIONS};
+\node[rounded corners=2mm,fill=Blue,text=White,font=\sffamily\bfseries\fontsize{8}{9}\selectfont,inner xsep=3mm,inner ysep=1.5mm] at ([yshift=-5mm]i2.south) {FIGURES + TABLES + REFERENCES};
 \end{tikzpicture}
-\end{minipage}\hfill
-\begin{minipage}[t]{83mm}
-\begin{carouselitemize}
-\item IEEEtran conference layout
-\item Nine numbered equations
-\item TikZ workflow diagram
-\item External vector beam-pattern figure
-\item Two publication-style tables
-\item Five cited bibliography records
-\end{carouselitemize}
-\vspace{5mm}
+\end{center}
+\vspace{10mm}
 \begin{tikzpicture}
-\node[rounded corners=4mm,fill=Navy,inner sep=6mm,text width=70mm,text=White] {\sffamily\fontsize{10.5}{14}\selectfont Includes a documented conventional-versus-MVDR beamforming example as realistic template content.};
+\node[rounded corners=4mm,fill=Navy,inner sep=6mm,text width=169mm,text=White] {
+\sffamily\fontsize{11}{15}\selectfont
+\textbf{Reusable publication workflow:} IEEEtran source, separate BibTeX database, cross-referenced equations and figures, and a curated rendered preview.};
 \end{tikzpicture}
-\end{minipage}
 \end{minipage}\slidefooter
 \newpage
 
