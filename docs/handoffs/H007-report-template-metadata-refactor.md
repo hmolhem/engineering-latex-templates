@@ -8,9 +8,11 @@
 | Author | `Hossein Molhem and ChatGPT` |
 | Repository | `hmolhem/engineering-latex-templates` |
 | Branch | `refactor/report-template-metadata` |
-| Pull request | `Pending` |
+| Pull request | `#7` |
+| Head commit | `f0b16cd8508be79a43631205126de892afe10fe3` |
+| Merge commit | `223241fd15b63c145a3c2b959dc362bd15239daa` |
 | Related version | `Unreleased after v0.2.0` |
-| Status | `Ready for Overleaf validation` |
+| Status | `Merged` |
 
 ## Purpose
 
@@ -120,8 +122,8 @@ Metadata duplication review: completed
 Title-page variable trace: completed
 Logo path retained: report-template/figures/logo-placeholder.png
 Handoff/index/changelog consistency: completed
-Overleaf compilation: pending repository-owner validation
-Preview PDF refresh: intentionally deferred until approval
+Repository-owner review: approved for merge
+Preview PDF refresh: deferred to a separate maintenance change
 ```
 
 The branch preserves the existing document class, setup-module order after metadata, front-matter sequence, body and appendix menus, bibliography database, and logo asset path.
@@ -141,12 +143,12 @@ The branch preserves the existing document class, setup-module order after metad
 - [ ] Test optional switches in both `true` and `false` states.
 - [ ] Refresh the curated report preview PDF after approval.
 - [ ] Commit final validation corrections, if any.
-- [ ] Open and merge the pull request.
-- [ ] Close H007 with the pull-request number and merge commit.
+- [x] Open and merge the pull request as PR #7.
+- [x] Close H007 with PR #7 and merge commit `223241fd15b63c145a3c2b959dc362bd15239daa`.
 
 ## Recovery and rollback
 
-Revert the eventual H007 merge commit to restore metadata definitions inside `main.tex` and the earlier title-page behavior without rewriting repository history.
+Revert merge commit `223241fd15b63c145a3c2b959dc362bd15239daa` to restore metadata definitions inside `main.tex` and the earlier title-page behavior without rewriting repository history.
 
 ## Related references
 
@@ -156,4 +158,6 @@ Revert the eventual H007 merge commit to restore metadata definitions inside `ma
 - Main controller: `report-template/main.tex`
 - Title page: `report-template/frontmatter/titlepage.tex`
 - Changelog entry: `CHANGELOG.md`
-- Related commit: `Pending final validation commit`
+- Pull request: `#7`
+- Head commit: `f0b16cd8508be79a43631205126de892afe10fe3`
+- Merge commit: `223241fd15b63c145a3c2b959dc362bd15239daa`
