@@ -13,7 +13,7 @@ This index provides a chronological entry point to the repository's implementati
 | 2026-07-23 | `H005` | MIT License | Repository-wide | `chore/add-mit-license` | Merged in PR #5 | [`H005-mit-license.md`](handoffs/H005-mit-license.md) |
 | 2026-07-23 | `H006` | Rebuilt LinkedIn carousel PDF | Social media / publication artifact | `fix/rebuild-linkedin-carousel-pdf` | Merged in PR #6 | [`H006-rebuilt-linkedin-carousel-pdf.md`](handoffs/H006-rebuilt-linkedin-carousel-pdf.md) |
 | 2026-07-25 | `H007` | Report template metadata refactor | Engineering report template | `refactor/report-template-metadata` | Merged in PR #7 | [`H007-report-template-metadata-refactor.md`](handoffs/H007-report-template-metadata-refactor.md) |
-| 2026-07-25 | `H008` | Standalone engineering portfolio report template | Portfolio report template | `feature/portfolio-report-template` | Local validation complete; ready for PR | [`H008-portfolio-report-template.md`](handoffs/H008-portfolio-report-template.md) |
+| 2026-07-25 | `H008` | Standalone engineering portfolio report template | Portfolio report template | `feature/portfolio-report-template` | Ready for PR; preview artifact deferred | [`H008-portfolio-report-template.md`](handoffs/H008-portfolio-report-template.md) |
 
 ## Naming convention
 
