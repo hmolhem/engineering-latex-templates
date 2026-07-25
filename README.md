@@ -1,8 +1,8 @@
 # Engineering LaTeX Templates
 
-Reusable LaTeX templates for engineering reports, technical presentations, research papers, and project documentation.
+Reusable LaTeX templates for engineering reports, public portfolio reports, technical presentations, research papers, and project documentation.
 
-This repository is intended to serve as a stable, version-controlled documentation system for recurring academic, research, industrial, and consulting work. The report template is based on the standardized architecture used in the latest 5G phased-array project report.
+This repository is a stable, version-controlled documentation system for recurring academic, research, industrial, consulting, and professional-portfolio work. Each top-level template is maintained as an independent product with its own purpose, metadata model, documentation, and rendered-preview policy.
 
 ## Repository contents
 
@@ -26,6 +26,19 @@ engineering-latex-templates/
 │   ├── appendices/
 │   ├── figures/
 │   ├── codes/
+│   ├── preview/
+│   └── references.bib
+├── portfolio-report-template/
+│   ├── README.md
+│   ├── main.tex
+│   ├── setup/
+│   ├── frontmatter/
+│   ├── content/
+│   ├── appendices/
+│   ├── codes/
+│   ├── figures/
+│   ├── simulation_records/
+│   ├── verification_records/
 │   ├── preview/
 │   └── references.bib
 ├── presentation-template/
@@ -52,19 +65,36 @@ engineering-latex-templates/
 
 `report-template/`
 
-A modular report system with:
+A modular report system for academic, institutional, industrial, and consulting reports, with:
 
-- configurable metadata in `main.tex`
-- optional cover logo
+- centralized user-editable metadata in `setup/00_metadata.tex`
+- optional cover logo and optional identity rows
 - standardized title-page typography
-- configurable headers on all non-cover pages
+- configurable headers on non-cover pages
 - separate objective and abstract files
-- a single content menu in `content/00_report_body.tex`
+- a single body menu in `content/00_report_body.tex`
 - a single appendix menu in `appendices/00_appendices.tex`
 - reusable theorem, definition, example, problem, code, matrix, and engineering environments
 - bibliography support through `biblatex` and Biber
 
 See [`report-template/README.md`](report-template/README.md).
+
+### Public engineering portfolio report
+
+`portfolio-report-template/`
+
+A standalone public-report system for GitHub, LinkedIn, personal websites, recruiter-facing project repositories, and professional evidence packages, with:
+
+- centralized public metadata in `setup/00_metadata.tex`
+- a public cover without course, student-ID, grading, or institutional fields
+- a Portfolio Context and Evidence page
+- analytical, simulated, and measured evidence classification
+- numerical-reliability and limitation guidance
+- a multipage Engineering Verification Matrix
+- reproducible calculation, simulation-record, and verification-record directories
+- `biblatex` with a BibTeX backend for the validated Windows/MiKTeX workflow
+
+See [`portfolio-report-template/README.md`](portfolio-report-template/README.md).
 
 ### Technical presentation
 
@@ -78,7 +108,7 @@ See [`presentation-template/README.md`](presentation-template/README.md).
 
 `ieee-paper-template/`
 
-A lightweight IEEE-style starting point for conference or journal manuscripts. The official template and author instructions of the target venue always take precedence.
+A complete illustrative IEEE-style starting point for conference or journal manuscripts. The official template and author instructions of the target venue always take precedence.
 
 See [`ieee-paper-template/README.md`](ieee-paper-template/README.md).
 
@@ -92,24 +122,26 @@ See [`social-media/linkedin-carousel/README.md`](social-media/linkedin-carousel/
 
 ## Rendered PDF previews
 
-The following curated PDFs show the current rendered appearance of each template:
+Curated PDFs show the reviewed appearance of each publication product:
 
 - [Engineering report template preview](report-template/preview/engineering-report-template-preview.pdf)
+- [Portfolio report template preview](portfolio-report-template/preview/portfolio-report-template-preview.pdf)
 - [Technical presentation template preview](presentation-template/preview/technical-presentation-template-preview.pdf)
 - [IEEE paper template preview](ieee-paper-template/preview/ieee-paper-template-preview.pdf)
 - [LinkedIn repository-showcase carousel](social-media/linkedin-carousel/engineering-latex-templates-carousel/engineering-latex-templates-carousel.pdf)
 
-Generated PDFs remain ignored by default. These explicitly named publication artifacts are intentionally version-controlled and should be refreshed whenever a future source change materially affects rendered output.
+Generated PDFs remain ignored by default. Explicitly named, reviewed publication artifacts are version-controlled and should be refreshed whenever a material source change affects rendered output.
 
 ## Recommended usage
 
-1. Create a new repository from this template repository, or copy only the required template folder.
-2. Edit project metadata in `main.tex`.
-3. Replace fictional example content with verified project-specific material.
-4. Keep shared setup files stable unless a formatting change is intentional.
-5. Compile locally with `latexmk` or upload the project folder to Overleaf.
+1. Copy only the required top-level template folder or create a new repository from this repository.
+2. Edit the selected template's `setup/00_metadata.tex` when that file exists.
+3. Replace illustrative content with verified project-specific material.
+4. Keep shared setup modules stable unless a formatting change is intentional.
+5. Compile locally or upload the complete template folder to Overleaf.
+6. Inspect every page before submission or public release.
 
-Example:
+Standard report example:
 
 ```bash
 git clone https://github.com/hmolhem/engineering-latex-templates.git
@@ -117,9 +149,19 @@ cd engineering-latex-templates/report-template
 latexmk -pdf main.tex
 ```
 
+Portfolio report example for Windows/MiKTeX:
+
+```powershell
+cd engineering-latex-templates/portfolio-report-template
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+bibtex main
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+```
+
 ## Development workflow
 
-Direct development on `main` is not allowed by project convention. Every change must be made on a dedicated branch and merged through a pull request.
+Direct development on `main` is not allowed by project convention. Every meaningful change must be made on a dedicated branch and merged through a pull request.
 
 Typical branch names:
 
@@ -135,13 +177,7 @@ Full workflow instructions are maintained in [`docs/WORKFLOW.md`](docs/WORKFLOW.
 
 ## Handoff documentation policy
 
-Every meaningful change must include a Markdown handoff file under:
-
-```text
-docs/handoffs/
-```
-
-The handoff must record:
+Every meaningful change must include a Markdown handoff under `docs/handoffs/` recording:
 
 - purpose and scope
 - affected files
@@ -152,7 +188,7 @@ The handoff must record:
 - follow-up work
 - related branch, commit, and pull request
 
-Every new handoff must also be registered in [`docs/HANDOFF_INDEX.md`](docs/HANDOFF_INDEX.md). Use [`docs/HANDOFF_TEMPLATE.md`](docs/HANDOFF_TEMPLATE.md) as the required starting structure.
+Every new handoff must also be registered in [`docs/HANDOFF_INDEX.md`](docs/HANDOFF_INDEX.md). Use [`docs/HANDOFF_TEMPLATE.md`](docs/HANDOFF_TEMPLATE.md) as the starting structure.
 
 ## Compilation
 
@@ -162,14 +198,16 @@ The standard report template uses `biblatex` with Biber:
 latexmk -pdf main.tex
 ```
 
-Manual sequence:
+The portfolio report template uses `biblatex` with BibTeX in the validated local workflow:
 
-```bash
-pdflatex main.tex
-biber main
-pdflatex main.tex
-pdflatex main.tex
+```powershell
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+bibtex main
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
 ```
+
+Consult each template's README before compiling.
 
 ## Versioning
 
@@ -177,14 +215,6 @@ Repository changes are summarized in [`CHANGELOG.md`](CHANGELOG.md). Stable mile
 
 ```text
 vMAJOR.MINOR.PATCH
-```
-
-Examples:
-
-```text
-v0.2.0
-v1.0.0
-v1.1.0
 ```
 
 ## License
@@ -195,4 +225,4 @@ The MIT License applies to the original repository source and documentation. Thi
 
 ## Publication and reuse note
 
-The included report content is fictional and demonstrates template capabilities only. Replace all example text, figures, results, institutional names, logos, and references before academic or professional submission.
+Included report content is illustrative and demonstrates template capabilities. Replace all sample text, figures, results, names, logos, evidence claims, and references before academic or professional publication. Public use of a template does not imply endorsement by an employer, university, client, software vendor, or other institution.
