@@ -8,15 +8,15 @@
 | Author | `Hossein Molhem and ChatGPT` |
 | Repository | `hmolhem/engineering-latex-templates` |
 | Branch | `feature/portfolio-report-template` |
-| Pull request | `Pending` |
+| Pull request | `#9` |
 | Related version | `Unreleased after v0.2.0` |
-| Status | `Ready for PR; curated preview artifact deferred` |
+| Status | `Open in PR #9; curated preview artifact deferred` |
 
 ## Purpose
 
 Add a standalone LaTeX template for public engineering portfolio reports on GitHub, LinkedIn, personal websites, recruiter-facing repositories, and professional application packages.
 
-The new template is intentionally independent from `report-template/`:
+The new template is independent from `report-template/`:
 
 - `report-template/` remains the standard product for academic, institutional, industrial, and consulting reports.
 - `portfolio-report-template/` is designed for public engineering evidence and professional portfolio publication.
@@ -40,7 +40,7 @@ The template adds:
 - a public title page without student ID, course, grading, or institutional fields
 - a Portfolio Context and Evidence page
 - abstract and project-objective front matter
-- modular engineering-report chapters and appendices
+- modular engineering chapters and appendices
 - analytical, simulated, and measured evidence classification
 - numerical-reliability and limitation guidance
 - calculation, simulation-record, and verification-record directories
@@ -57,15 +57,7 @@ portfolio-report-template/content/07_engineering_verification_matrix.tex
 
 It links each public claim to a verification ID, evidence class, evidence location, and limitation or qualification.
 
-The final implementation uses:
-
-- `longtable` for multipage continuation
-- repeated headers on continuation pages
-- `booktabs` horizontal rules
-- no outer or internal vertical rules
-- whitespace between rows
-- left-aligned descriptive columns
-- a centered verification-ID column
+The final implementation uses `longtable`, repeated headers, `booktabs` horizontal rules, no vertical grid rules, whitespace between rows, left-aligned descriptive columns, and a centered verification-ID column.
 
 The reusable row macro is defined in:
 
@@ -75,7 +67,7 @@ portfolio-report-template/setup/05_environments.tex
 
 ## Bibliography backend
 
-The template uses `biblatex` with the BibTeX backend:
+The template uses `biblatex` with:
 
 ```latex
 backend=bibtex
@@ -107,30 +99,17 @@ Fatal LaTeX errors: none
 
 The title page, portfolio context, abstract, objective, contents, lists, report chapters, verification matrix, appendices, and bibliography were reviewed.
 
-A second reconstruction and build was also completed from the prepared source package. The generated document contained 26 pages and the revised verification matrix rendered without vertical grid rules.
+A second reconstruction and build from the prepared source package produced a 26-page document. The revised verification matrix rendered without vertical grid rules.
 
 ## Generated-file policy
 
-Temporary outputs must not be committed, including:
+Temporary outputs must not be committed, including `main.pdf`, `main.aux`, `main.bbl`, `main.blg`, `main-blx.bib`, `main.log`, `main.out`, `main.toc`, `main.lof`, and `main.lot`.
 
-```text
-main.pdf
-main.aux
-main.bbl
-main.blg
-main-blx.bib
-main.log
-main.out
-main.toc
-main.lof
-main.lot
-```
-
-The repository now ignores generated `*-blx.bib` BibLaTeX control files. A generated `main-blx.bib` that entered the initial feature commit was removed before PR creation.
+The repository now ignores generated `*-blx.bib` files. A generated `main-blx.bib` that entered the initial feature commit was removed before PR creation.
 
 ## Curated preview status
 
-The portfolio PDF was generated and visually validated locally. However, the binary preview was not included in the initial branch push.
+The portfolio PDF was generated and visually validated locally, but the binary preview was not included in the initial branch push.
 
 The `.gitignore` contains a narrow future exception for:
 
@@ -138,7 +117,7 @@ The `.gitignore` contains a narrow future exception for:
 portfolio-report-template/preview/portfolio-report-template-preview.pdf
 ```
 
-Committing that curated binary artifact is intentionally deferred to a separately reviewed artifact update. The root README therefore does not expose a broken preview link in H008.
+Committing the binary preview is intentionally deferred to a separately reviewed artifact update. The root README does not expose a broken portfolio-preview link in PR #9.
 
 ## Files added or modified
 
@@ -159,32 +138,32 @@ No unrelated source changes were made to the existing report, presentation, IEEE
 - Measured claims require traceable physical-test evidence.
 - The local build uses a manual four-command sequence.
 - BibTeX is less capable than Biber for advanced Unicode, multilingual, and custom-sorting workflows.
-- Automated LaTeX compilation and visual-regression testing are not implemented.
+- Automated compilation and visual-regression CI are not implemented.
 - The curated portfolio preview artifact is deferred.
 
 ## Remaining work
 
-- open and review the pull request
+- review PR #9
 - merge after repository-owner approval
-- record the pull-request, head-commit, and merge-commit identifiers
+- record the final head and merge commits
 - mark H008 as merged in the handoff index
 - add the curated portfolio preview through a separately reviewed artifact update
 
 ## Recovery and rollback
 
-Before merge, delete the feature branch to abandon H008 without changing `main`.
+Before merge, close PR #9 and delete the feature branch to abandon H008 without changing `main`.
 
 After merge, revert the H008 merge commit to remove the standalone portfolio template and related documentation without rewriting repository history.
 
-## Related files
+## Related references
 
-- `portfolio-report-template/main.tex`
-- `portfolio-report-template/setup/00_metadata.tex`
-- `portfolio-report-template/setup/01_packages.tex`
-- `portfolio-report-template/setup/05_environments.tex`
-- `portfolio-report-template/frontmatter/portfolio_context.tex`
-- `portfolio-report-template/content/07_engineering_verification_matrix.tex`
-- `portfolio-report-template/README.md`
-- `docs/HANDOFF_INDEX.md`
-- `CHANGELOG.md`
-- `README.md`
+- Pull request: `#9`
+- Branch: `feature/portfolio-report-template`
+- Template controller: `portfolio-report-template/main.tex`
+- Metadata: `portfolio-report-template/setup/00_metadata.tex`
+- Package configuration: `portfolio-report-template/setup/01_packages.tex`
+- Verification matrix: `portfolio-report-template/content/07_engineering_verification_matrix.tex`
+- Template README: `portfolio-report-template/README.md`
+- Handoff index: `docs/HANDOFF_INDEX.md`
+- Changelog: `CHANGELOG.md`
+- Root README: `README.md`
