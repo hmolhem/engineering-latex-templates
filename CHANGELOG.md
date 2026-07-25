@@ -21,6 +21,10 @@
 - Added Handoff `H005` documenting the licensing decision and scope.
 - Rebuilt the committed LinkedIn carousel PDF from the approved final source after detecting a stale publication artifact.
 - Added Handoff `H006` documenting artifact synchronization, validation, and the approved PDF checksum.
+- Added `report-template/setup/00_metadata.tex` as the single user-editable source for report identity, author, institution, headers, optional title-page rows, logo controls, and PDF properties.
+- Simplified `report-template/main.tex` into a stable, documented document-assembly controller.
+- Synchronized `report-template/frontmatter/titlepage.tex` with the centralized metadata interface and added explicit visibility switches.
+- Added Handoff `H007` documenting the report-template metadata refactor and Overleaf validation plan.
 
 ## v0.2.0 — Standardized 5G-report architecture
 
