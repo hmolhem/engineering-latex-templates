@@ -29,8 +29,9 @@
 - Added centralized public-project metadata, a public title page, Portfolio Context and Evidence front matter, and analytical/simulated/measured evidence classification.
 - Added numerical-reliability guidance, simulation and verification record directories, and a multipage Engineering Verification Matrix using `longtable` and `booktabs` styling.
 - Selected the BibTeX backend for the validated Windows/MiKTeX portfolio-template build workflow and documented the four-command build sequence.
-- Added a narrow `.gitignore` exception for the curated portfolio preview and ignored generated `*-blx.bib` control files.
-- Added Handoff `H008` documenting the standalone portfolio report template, validation, artifact policy, and remaining PR lifecycle work.
+- Ignored generated `*-blx.bib` control files and prepared a narrow `.gitignore` exception for a future curated portfolio preview.
+- Validated the rendered portfolio PDF locally; committing the curated preview artifact is intentionally deferred to a separately reviewed artifact update.
+- Added Handoff `H008` documenting the standalone portfolio report template, validation, artifact policy, and PR lifecycle work.
 
 ## v0.2.0 — Standardized 5G-report architecture
 
