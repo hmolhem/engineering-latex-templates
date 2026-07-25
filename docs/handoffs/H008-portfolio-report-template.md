@@ -10,20 +10,16 @@
 | Branch | `feature/portfolio-report-template` |
 | Pull request | `Pending` |
 | Related version | `Unreleased after v0.2.0` |
-| Status | `Local validation complete; ready for repository review` |
+| Status | `Ready for PR; curated preview artifact deferred` |
 
 ## Purpose
 
-Add a standalone LaTeX template for publishing professional engineering
-portfolio reports on GitHub, LinkedIn, personal websites, and technical
-application packages.
+Add a standalone LaTeX template for public engineering portfolio reports on GitHub, LinkedIn, personal websites, recruiter-facing repositories, and professional application packages.
 
-The new template is intentionally independent from `report-template/`.
+The new template is intentionally independent from `report-template/`:
 
-- `report-template/` remains the standard template for academic, institutional,
-  industrial, and consulting reports.
-- `portfolio-report-template/` is intended for public engineering projects,
-  recruiter-facing documentation, and technical portfolio publication.
+- `report-template/` remains the standard product for academic, institutional, industrial, and consulting reports.
+- `portfolio-report-template/` is designed for public engineering evidence and professional portfolio publication.
 
 ## Repository location
 
@@ -36,79 +32,37 @@ engineering-latex-templates/
 └── social-media/
 ```
 
-## Main architecture
-
-```text
-portfolio-report-template/
-├── README.md
-├── main.tex
-├── references.bib
-├── setup/
-├── frontmatter/
-├── content/
-├── appendices/
-├── codes/
-├── figures/
-├── verification_records/
-└── preview/
-```
-
 ## Main features
 
-The template includes:
+The template adds:
 
 - centralized public-project metadata
-- a professional public title page
+- a public title page without student ID, course, grading, or institutional fields
 - a Portfolio Context and Evidence page
-- abstract and project-objective pages
-- modular engineering-report chapters
+- abstract and project-objective front matter
+- modular engineering-report chapters and appendices
 - analytical, simulated, and measured evidence classification
 - numerical-reliability and limitation guidance
+- calculation, simulation-record, and verification-record directories
 - an Engineering Verification Matrix
-- appendix and bibliography support
-- reusable code and verification-record directories
-- a curated rendered PDF preview
-
-## Public-document design
-
-The portfolio template excludes academic and administrative information by
-default, including:
-
-- student ID
-- grades
-- assignment numbers
-- course numbers
-- instructor information
-- institutional approval or endorsement
-
-The public report should clearly distinguish analytical, simulated, and measured
-results.
-
-Simulation results must not be represented as hardware measurements.
+- external bibliography support
 
 ## Engineering Verification Matrix
 
-The verification matrix is maintained in:
+The matrix is maintained in:
 
 ```text
 portfolio-report-template/content/07_engineering_verification_matrix.tex
 ```
 
-It connects each public engineering claim to:
+It links each public claim to a verification ID, evidence class, evidence location, and limitation or qualification.
 
-- a verification ID
-- evidence class
-- evidence location
-- limitation or qualification
+The final implementation uses:
 
-The matrix uses `longtable` so it can continue across multiple pages.
-
-The final design uses:
-
-- no vertical borders
-- no internal vertical rules
-- `booktabs` horizontal rules
+- `longtable` for multipage continuation
 - repeated headers on continuation pages
+- `booktabs` horizontal rules
+- no outer or internal vertical rules
 - whitespace between rows
 - left-aligned descriptive columns
 - a centered verification-ID column
@@ -127,7 +81,7 @@ The template uses `biblatex` with the BibTeX backend:
 backend=bibtex
 ```
 
-The validated local build sequence is:
+Validated local build sequence:
 
 ```powershell
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
@@ -136,8 +90,7 @@ pdflatex -interaction=nonstopmode -halt-on-error main.tex
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-BibTeX was selected because it is available in the validated local MiKTeX
-installation and avoids the missing Perl dependency required by `latexmk`.
+BibTeX was selected because it is available in the validated local MiKTeX installation and avoids the missing Perl dependency required by `latexmk`.
 
 ## Validation performed
 
@@ -152,42 +105,42 @@ Rendered PDF inspection: completed
 Fatal LaTeX errors: none
 ```
 
-The following areas were reviewed:
+The title page, portfolio context, abstract, objective, contents, lists, report chapters, verification matrix, appendices, and bibliography were reviewed.
 
-- title page
-- Portfolio Context and Evidence
-- abstract and project objective
-- table of contents
-- list of figures
-- list of tables
-- report chapters
-- Engineering Verification Matrix
-- appendices
-- bibliography
+A second reconstruction and build was also completed from the prepared source package. The generated document contained 26 pages and the revised verification matrix rendered without vertical grid rules.
 
-## Artifact policy
+## Generated-file policy
 
-The root build output is temporary and must not be committed:
+Temporary outputs must not be committed, including:
 
 ```text
-portfolio-report-template/main.pdf
+main.pdf
+main.aux
+main.bbl
+main.blg
+main-blx.bib
+main.log
+main.out
+main.toc
+main.lof
+main.lot
 ```
 
-The reviewed preview is intentionally retained:
+The repository now ignores generated `*-blx.bib` BibLaTeX control files. A generated `main-blx.bib` that entered the initial feature commit was removed before PR creation.
+
+## Curated preview status
+
+The portfolio PDF was generated and visually validated locally. However, the binary preview was not included in the initial branch push.
+
+The `.gitignore` contains a narrow future exception for:
 
 ```text
 portfolio-report-template/preview/portfolio-report-template-preview.pdf
 ```
 
-The repository `.gitignore` contains a narrow exception for this curated
-preview.
-
-Generated LaTeX files such as `.aux`, `.bbl`, `.blg`, `.log`, `.out`, `.toc`,
-`.lof`, and `.lot` remain ignored and should be removed after local validation.
+Committing that curated binary artifact is intentionally deferred to a separately reviewed artifact update. The root README therefore does not expose a broken preview link in H008.
 
 ## Files added or modified
-
-Expected H008 scope:
 
 ```text
 portfolio-report-template/
@@ -198,39 +151,30 @@ docs/HANDOFF_INDEX.md
 docs/handoffs/H008-portfolio-report-template.md
 ```
 
-The implementation should not introduce unrelated changes to the existing
-report, presentation, IEEE-paper, or social-media templates.
+No unrelated source changes were made to the existing report, presentation, IEEE-paper, or social-media products.
 
 ## Known limitations
 
-- The included engineering content is illustrative and must be replaced with
-  verified project-specific material.
+- Included engineering content is illustrative and must be replaced with verified project-specific material.
 - Measured claims require traceable physical-test evidence.
-- The local build currently uses a manual four-command sequence.
-- Preview generation and inspection remain manual.
-- Automated LaTeX compilation and visual-regression testing are not yet
-  implemented.
-- BibTeX is less capable than Biber for advanced Unicode, multilingual, or
-  custom sorting workflows.
+- The local build uses a manual four-command sequence.
+- BibTeX is less capable than Biber for advanced Unicode, multilingual, and custom-sorting workflows.
+- Automated LaTeX compilation and visual-regression testing are not implemented.
+- The curated portfolio preview artifact is deferred.
 
 ## Remaining work
 
-- update the root `README.md`
-- update `CHANGELOG.md`
-- confirm the H008 row in `docs/HANDOFF_INDEX.md`
-- review the complete Git diff
-- commit and push the feature branch
 - open and review the pull request
-- merge after approval
+- merge after repository-owner approval
 - record the pull-request, head-commit, and merge-commit identifiers
 - mark H008 as merged in the handoff index
+- add the curated portfolio preview through a separately reviewed artifact update
 
 ## Recovery and rollback
 
-Before merge, the feature branch may be deleted without affecting `main`.
+Before merge, delete the feature branch to abandon H008 without changing `main`.
 
-After merge, revert the H008 merge commit to remove the portfolio template and
-its related documentation without rewriting repository history.
+After merge, revert the H008 merge commit to remove the standalone portfolio template and related documentation without rewriting repository history.
 
 ## Related files
 
@@ -241,7 +185,6 @@ its related documentation without rewriting repository history.
 - `portfolio-report-template/frontmatter/portfolio_context.tex`
 - `portfolio-report-template/content/07_engineering_verification_matrix.tex`
 - `portfolio-report-template/README.md`
-- `portfolio-report-template/preview/portfolio-report-template-preview.pdf`
 - `docs/HANDOFF_INDEX.md`
 - `CHANGELOG.md`
 - `README.md`
