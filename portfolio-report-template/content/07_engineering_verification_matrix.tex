@@ -1,0 +1,92 @@
+\chapter{Engineering Verification Matrix}
+
+The verification matrix is the claim-control center of the public report. Every major
+claim should identify its evidence class, source, and limitation. Replace the sample
+rows with project-specific entries before publication.
+
+\begingroup
+\small
+\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{4pt}
+
+\begin{longtable}{
+    @{}
+    >{\centering\arraybackslash}p{0.055\textwidth}
+    >{\raggedright\arraybackslash}p{0.27\textwidth}
+    >{\raggedright\arraybackslash}p{0.13\textwidth}
+    >{\raggedright\arraybackslash}p{0.24\textwidth}
+    >{\raggedright\arraybackslash}p{0.20\textwidth}
+    @{}
+}
+
+\caption{Engineering verification matrix.}
+\label{tab:verification-matrix}
+\\
+
+\toprule
+\textbf{ID}
+&
+\textbf{Public claim}
+&
+\textbf{Evidence class}
+&
+\textbf{Evidence location}
+&
+\textbf{Limitation or qualification}
+\\
+\midrule
+\endfirsthead
+
+\toprule
+\textbf{ID}
+&
+\textbf{Public claim}
+&
+\textbf{Evidence class}
+&
+\textbf{Evidence location}
+&
+\textbf{Limitation or qualification}
+\\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{5}{r}{\small Continued on next page}
+\\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+\VerificationRow
+    {V1}
+    {Initial dimensions or parameters were calculated independently.}
+    {Analytical}
+    {Equation~\eqref{eq:generic-response};
+     Appendix~\ref{app:analytical-verification}}
+    {Depends on stated first-order assumptions.}
+
+\VerificationRow
+    {V2}
+    {The numerical model reproduces the documented baseline configuration.}
+    {Simulated}
+    {Model-method chapter; run manifest}
+    {Requires project-specific solver and mesh records.}
+
+\VerificationRow
+    {V3}
+    {The reported trend is physically interpreted and compared with the analytical expectation.}
+    {Analytical + Simulated}
+    {Results and discussion chapters}
+    {Does not constitute experimental validation.}
+
+\VerificationRow
+    {V4}
+    {No measured hardware performance is claimed in the starter document.}
+    {Measured status}
+    {Portfolio Context and Evidence}
+    {Replace only after traceable physical testing.}
+
+\end{longtable}
+\endgroup

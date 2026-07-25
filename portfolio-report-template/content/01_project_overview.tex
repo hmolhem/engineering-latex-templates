@@ -1,0 +1,42 @@
+\chapter{Project Overview}
+
+\section{Engineering problem}
+State the practical engineering problem in terms a hiring manager, customer, or
+technical reviewer can evaluate. Identify the operating environment, performance
+objective, constraints, and consequences of failure. Replace generic phrases such as
+``optimize the system'' with measurable engineering targets.
+
+\section{System context}
+Figure~\ref{fig:portfolio-workflow} shows the recommended evidence flow for a public
+engineering project. The report begins with requirements, proceeds through analytical
+and numerical work, and ends with controlled public claims.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance=7mm and 9mm,
+  box/.style={draw,rounded corners,minimum width=2.65cm,minimum height=1.05cm,
+              align=center,fill=blue!5,font=\small},
+  arr/.style={-{Latex[length=2.4mm]},thick}
+]
+\node[box] (req) {Requirements\\and constraints};
+\node[box,right=of req] (ana) {Analytical\\design};
+\node[box,right=of ana] (model) {Model or\\prototype};
+\node[box,below=of model] (verify) {Verification\\and validation};
+\node[box,left=of verify] (judge) {Engineering\\interpretation};
+\node[box,left=of judge] (claim) {Controlled\\public claims};
+\draw[arr] (req) -- (ana);
+\draw[arr] (ana) -- (model);
+\draw[arr] (model) -- (verify);
+\draw[arr] (verify) -- (judge);
+\draw[arr] (judge) -- (claim);
+\end{tikzpicture}
+\caption{Recommended evidence flow for an engineering portfolio project.}
+\label{fig:portfolio-workflow}
+\end{figure}
+
+\section{Portfolio value}
+Explain what this project demonstrates beyond software operation. Examples include
+requirements translation, model credibility, trade-space reasoning, numerical
+reliability, root-cause analysis, design iteration, verification discipline, and
+technical communication.

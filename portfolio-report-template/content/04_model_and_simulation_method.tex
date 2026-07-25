@@ -1,0 +1,38 @@
+\chapter{Model and Simulation Method}
+
+\section{Model construction}
+Describe geometry, material properties, excitations, ports, boundary conditions,
+monitors, mesh controls, solver type, stopping criteria, and post-processing. A second
+engineer should be able to reconstruct the model from the information presented here
+and in the simulation record.
+
+\section{Parameter control}
+Maintain a single source of truth for design parameters. Table~\ref{tab:parameters}
+illustrates a compact public parameter record.
+
+\begin{table}[H]
+\centering
+\caption{Example public parameter record.}
+\label{tab:parameters}
+\begin{tabular}{llll}
+\toprule
+Parameter & Symbol & Example value & Evidence source \\
+\midrule
+Reference frequency & $f_0$ & \SI{2.50}{\giga\hertz} & Requirement \\
+Normalized wavelength & $\lambda_0$ & \SI{119.9}{\milli\meter} & Analytical script \\
+Nominal spacing & $d$ & $0.5\lambda_0$ & Analytical design \\
+Relative phase & $\alpha$ & \ang{90} & Steering case \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Run manifest}
+Record each meaningful numerical run with a stable identifier, model revision, solver,
+mesh or discretization setting, changed parameter, completion status, and exported
+artifacts. The starter file \texttt{simulation\_records/run\_manifest.csv} provides a
+machine-readable structure.
+
+\begin{simulatedevidencebox}
+A screenshot alone is not a complete simulation record. Pair every published plot with
+a run identifier and enough configuration information to reconstruct its origin.
+\end{simulatedevidencebox}

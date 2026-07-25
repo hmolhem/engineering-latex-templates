@@ -1,0 +1,38 @@
+\chapter{Results and Verification}
+
+\section{Result presentation}
+Present the minimum set of figures and tables needed to support the engineering
+conclusion. Each caption should identify the evidence class, operating condition, and
+relevant run or test identifier.
+
+\begin{table}[H]
+\centering
+\caption{Example comparison of analytical and numerical evidence.}
+\label{tab:comparison}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{0.28\textwidth}XXX}
+\toprule
+Metric & Analytical & Simulated & Interpretation \\
+\midrule
+Characteristic frequency & Requirement-derived & Solver-extracted & Agreement must be quantified \\
+Primary response & Idealized model & Full numerical model & Differences require physical explanation \\
+Efficiency or loss & Simplified estimate & Material and solver dependent & State model fidelity \\
+Steering or control & Closed-form prediction & Post-processed result & Report scan loss and asymmetry \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Verification checks}
+Verification asks whether the equations, scripts, model, and post-processing were
+implemented correctly. Useful checks include unit tests, hand calculations,
+independent scripts, reciprocity, symmetry, conservation, limiting cases, and
+comparison with canonical results.
+
+\section{Validation status}
+Validation asks whether the model represents physical reality adequately for the
+intended use. Explicitly distinguish model verification from experimental validation.
+
+\begin{measuredevidencebox}
+This starter report claims no measured evidence. Replace this box only after a real
+prototype, calibrated setup, test procedure, uncertainty statement, and traceable data
+record exist.
+\end{measuredevidencebox}

@@ -1,0 +1,27 @@
+\chapter{Engineering Discussion}
+
+\section{Interpretation rather than description}
+Do not merely restate that a curve moved or a field pattern changed. Explain the
+physical or algorithmic mechanism, identify the controlling parameter, and connect the
+result to requirements and design risk.
+
+\section{Trade-offs}
+Engineering portfolios become credible when trade-offs are explicit. Discuss competing
+objectives such as bandwidth versus size, accuracy versus runtime, isolation versus
+spacing, latency versus resource use, robustness versus complexity, and maintainability
+versus optimization.
+
+\section{Numerical reliability and limitations}
+Document mesh or discretization adequacy, boundary sensitivity, solver tolerance,
+material fidelity, numerical noise, anomalous behavior, and convergence evidence. Verification and validation should be treated as distinct technical activities rather than interchangeable labels~\cite{oberkampf2010,asmev20}.
+
+\begin{limitationbox}
+A visually smooth plot is not proof of numerical reliability. Non-monotonic or
+unexpected behavior should trigger mesh, boundary, solver, or implementation checks.
+When those checks are not feasible, state the limitation directly and narrow the claim.
+\end{limitationbox}
+
+\section{Industrial relevance}
+Translate the technical result into a design, integration, manufacturing, maintenance,
+safety, cost, or deployment consequence. This section should demonstrate engineering
+judgment rather than marketing language.

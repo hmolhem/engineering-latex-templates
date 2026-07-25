@@ -1,0 +1,62 @@
+% =========================================================
+% frontmatter/titlepage.tex
+% Public portfolio cover; normally edit metadata, not this layout.
+% =========================================================
+\begin{titlepage}
+    \thispagestyle{titlepage}
+    \centering
+
+    \vspace*{1.2cm}
+
+    \ifshowprojectlogo
+        \IfFileExists{\projectlogo}{%
+            \includegraphics[width=\projectlogowidth]{\projectlogo}\par
+        }{%
+            \fbox{\parbox[c][2.2cm][c]{0.72\textwidth}{\centering
+            Project logo enabled but not found:\\[0.15cm]
+            \texttt{\projectlogo}}}\par
+        }
+        \vspace{0.8cm}
+    \fi
+
+    \rule{\textwidth}{0.7pt}\par
+    \vspace{0.65cm}
+
+    {\Huge\bfseries\reporttitle\par}
+    \vspace{0.45cm}
+    {\Large\projectsubtitle\par}
+    \vspace{0.28cm}
+    {\large\color{SectionColor}\projectdomain\par}
+
+    \vspace{0.65cm}
+    \rule{\textwidth}{0.7pt}\par
+
+    \vfill
+
+    {\Large\bfseries\authorname\par}
+    \ifshowauthorrole
+        \vspace{0.18cm}
+        {\large\authorrole\par}
+    \fi
+
+    \vspace{0.42cm}
+    {\large\portfolioedition\par}
+
+    \vfill
+
+    \begin{minipage}{0.88\textwidth}
+    \centering\small
+    \ifshowrepository
+        \textbf{Repository:} \url{\repositoryurl}\par
+    \fi
+    \ifshowlinkedin
+        \textbf{LinkedIn:} \url{\linkedinurl}\par
+    \fi
+    \ifshowcontactemail
+        \textbf{Contact:} \href{mailto:\contactemail}{\contactemail}\par
+    \fi
+    \end{minipage}
+
+    \vspace{0.65cm}
+    {\large\publicationdate\par}
+\end{titlepage}

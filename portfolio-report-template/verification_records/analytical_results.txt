@@ -1,0 +1,4 @@
+Frequency: 2.500 GHz
+Wavelength: 119.917 mm
+Spacing: 59.958 mm
+Progressive phase: -90.000 deg
