@@ -1,0 +1,28 @@
+\chapter{Theory and Analytical Design}
+
+\section{Governing model}
+Introduce only the theory needed to justify engineering choices. For antenna and array projects, canonical references such as Stutzman and Thiele provide a disciplined starting point for notation and first-order design relationships~\cite{stutzman2012}. Define variables,
+assumptions, coordinate systems, and validity limits. For an illustrative normalized
+array or sensing problem, a generic response may be written as
+\begin{equation}
+H(\theta)=\sum_{n=0}^{N-1} w_n e^{j n \psi(\theta)},
+\label{eq:generic-response}
+\end{equation}
+where $w_n$ represents a complex weighting coefficient and $\psi(\theta)$ represents
+the progressive phase associated with geometry and excitation.
+
+\section{First-order design calculation}
+Show the calculation chain that converts requirements into initial dimensions or
+parameters. The purpose is not to reproduce a textbook chapter; it is to establish a
+traceable starting point for modeling and optimization.
+
+\begin{analyticalevidencebox}
+The example script in Appendix~\ref{app:analytical-verification} calculates a normalized
+wavelength, nominal spacing, and progressive phase. Replace it with the project's real
+verification script and retain its console output under \texttt{verification\_records/}.
+\end{analyticalevidencebox}
+
+\section{Assumptions and validity}
+Record assumptions before presenting results. Typical examples include linearity,
+steady-state operation, homogeneous materials, ideal source behavior, negligible
+connector effects, limited temperature range, or simplified boundary conditions.

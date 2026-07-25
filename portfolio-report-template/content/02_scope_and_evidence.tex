@@ -1,0 +1,37 @@
+\chapter{Engineering Scope and Evidence}
+
+\section{Scope boundaries}
+Define what is included and excluded. A strong scope statement prevents the public
+report from implying fabrication, certification, field validation, or production
+readiness that was not actually achieved.
+
+\begin{table}[H]
+\centering
+\caption{Example scope boundary table.}
+\label{tab:scope}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{0.22\textwidth}XX}
+\toprule
+Area & Included & Excluded or deferred \\
+\midrule
+Analytical work & Governing equations, first-order sizing, sensitivity checks & Formal uncertainty propagation \\
+Numerical work & Baseline model, parameter sweep, selected convergence checks & Full certification-grade validation \\
+Hardware & Interface and test concept & Fabricated prototype and chamber measurements \\
+Public release & Verified plots, scripts, assumptions, limitations & Proprietary files and institution-specific administration \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Evidence taxonomy}
+Use evidence labels consistently throughout the report:
+
+\begin{itemize}[leftmargin=2em]
+\item \AnalyticalTag\ results derived from equations, calculations, or independent scripts;
+\item \SimulatedTag\ results exported from a numerical model or digital twin;
+\item \MeasuredTag\ results obtained from physical instrumentation or test equipment;
+\item \QualifiedTag\ claims that remain dependent on stated assumptions or incomplete validation.
+\end{itemize}
+
+\section{Deliverables}
+List the public artifacts that allow a reviewer to reproduce or audit the work: source
+report, code, console output, model screenshots, run manifest, parameter tables,
+verification matrix, and selected native project files when licensing and size permit.

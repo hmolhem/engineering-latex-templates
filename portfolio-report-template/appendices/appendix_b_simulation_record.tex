@@ -1,0 +1,33 @@
+\chapter{Simulation and Model Record}
+\label{app:simulation-record}
+
+For every published numerical result, retain a stable record containing the following:
+\begin{itemize}[leftmargin=2em]
+\item run identifier and model revision;
+\item software and solver version;
+\item geometry and material parameter set;
+\item excitation, port, and boundary configuration;
+\item mesh or discretization settings;
+\item convergence or stopping criteria;
+\item exported plots, tables, and raw data;
+\item known warnings, simplifications, and failed checks.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{Example simulation-run record.}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{0.24\textwidth}X}
+\toprule
+Field & Example entry \\
+\midrule
+Run ID & SIM-001 \\
+Purpose & Baseline model before parameter sweep \\
+Model revision & rev-A \\
+Solver & Replace with solver and version \\
+Discretization & Replace with cell count, mesh rule, or element order \\
+Convergence & Replace with tolerance and achieved status \\
+Artifacts & Plot names, raw exports, and screenshots \\
+Limitations & Material, boundary, license, runtime, or memory constraints \\
+\bottomrule
+\end{tabularx}
+\end{table}

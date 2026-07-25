@@ -25,6 +25,13 @@
 - Simplified `report-template/main.tex` into a stable, documented document-assembly controller.
 - Synchronized `report-template/frontmatter/titlepage.tex` with the centralized metadata interface and added explicit visibility switches.
 - Added Handoff `H007` documenting the report-template metadata refactor and Overleaf validation plan.
+- Added the standalone `portfolio-report-template/` for public GitHub, LinkedIn, recruiter-facing, and professional engineering project reports.
+- Added centralized public-project metadata, a public title page, Portfolio Context and Evidence front matter, and analytical/simulated/measured evidence classification.
+- Added numerical-reliability guidance, simulation and verification record directories, and a multipage Engineering Verification Matrix using `longtable` and `booktabs` styling.
+- Selected the BibTeX backend for the validated Windows/MiKTeX portfolio-template build workflow and documented the four-command build sequence.
+- Ignored generated `*-blx.bib` control files and prepared a narrow `.gitignore` exception for a future curated portfolio preview.
+- Validated the rendered portfolio PDF locally; committing the curated preview artifact is intentionally deferred to a separately reviewed artifact update.
+- Added Handoff `H008` documenting the standalone portfolio report template, validation, artifact policy, and PR lifecycle work.
 
 ## v0.2.0 — Standardized 5G-report architecture
 

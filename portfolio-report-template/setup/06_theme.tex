@@ -1,0 +1,21 @@
+% =========================================================
+% setup/06_theme.tex
+% Portfolio-report visual hierarchy
+% =========================================================
+\definecolor{ChapterColor}{RGB}{112,0,30}
+\definecolor{SectionColor}{RGB}{0,55,105}
+\definecolor{SubsectionColor}{RGB}{65,65,65}
+
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{ChapterColor}}
+  {\chaptertitlename\ \thechapter}
+  {16pt}
+  {\Huge}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{SectionColor}}
+  {\thesection}{0.8em}{}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{SubsectionColor}}
+  {\thesubsection}{0.8em}{}

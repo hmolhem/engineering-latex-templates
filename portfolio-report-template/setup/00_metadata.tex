@@ -1,0 +1,93 @@
+% =========================================================
+% setup/00_metadata.tex
+% Public, user-editable portfolio metadata
+% =========================================================
+%
+% This is the first file to edit when starting a portfolio project.
+% Keep plain-text PDF fields free of manual line breaks and commands.
+% Escape LaTeX special characters when needed: & -> \&, % -> \%, _ -> \_.
+
+% -----------------------------------------------------------------
+% 1. Public project identity
+% -----------------------------------------------------------------
+\newcommand{\projecttitle}{Compact Sensor Array Design and Verification}
+\newcommand{\projectsubtitle}{Analytical Development, Numerical Modeling, and Engineering Evidence}
+\newcommand{\projectdomain}{Applied Electromagnetics and Embedded Sensing}
+\newcommand{\projectshorttitle}{Compact Sensor Array}
+
+% Formatted title for the cover.
+\newcommand{\reporttitle}{%
+    Compact Sensor Array Design\\[0.18cm]
+    and Verification%
+}
+
+% Plain title for PDF metadata and accessibility.
+\newcommand{\reporttitleplain}{Compact Sensor Array Design and Verification}
+
+% -----------------------------------------------------------------
+% 2. Public author identity
+% -----------------------------------------------------------------
+\newcommand{\authorname}{Author Name}
+\newcommand{\authorrole}{Engineer and Technical Researcher}
+\newcommand{\portfolioedition}{Independent Engineering Portfolio Project}
+\newcommand{\publicationdate}{\today}
+
+% Public links. Replace placeholders before publication.
+\newcommand{\repositoryurl}{https://github.com/username/project-repository}
+\newcommand{\linkedinurl}{https://www.linkedin.com/in/username}
+\newcommand{\contactemail}{name@example.com}
+
+% Set each switch to true or false.
+\newif\ifshowauthorrole
+\showauthorroletrue
+\newif\ifshowrepository
+\showrepositorytrue
+\newif\ifshowlinkedin
+\showlinkedinfalse
+\newif\ifshowcontactemail
+\showcontactemailfalse
+
+% -----------------------------------------------------------------
+% 3. Optional public logo or project mark
+% -----------------------------------------------------------------
+\newif\ifshowprojectlogo
+\showprojectlogofalse
+\newcommand{\projectlogo}{figures/project-logo-placeholder.png}
+\newcommand{\projectlogowidth}{4.6cm}
+
+% -----------------------------------------------------------------
+% 4. Portfolio context and evidence declarations
+% -----------------------------------------------------------------
+\newcommand{\projectorigin}{%
+This public edition was prepared from an independently completed engineering project.
+Replace this sentence with a concise, factual description of the project origin.}
+
+\newcommand{\publiceditionnote}{%
+Administrative, grading, student-identification, and institutional material has
+been removed. The public edition focuses on technical decisions, evidence, limitations,
+and reproducibility.}
+
+\newcommand{\analyticalevidence}{%
+Closed-form calculations, governing equations, design rules, and independent scripts.}
+
+\newcommand{\simulatedevidence}{%
+Numerical model construction, solver settings, parameter sweeps, and exported results.}
+
+\newcommand{\measuredevidence}{%
+No fabricated prototype or measurement campaign is claimed in this example template.}
+
+\newcommand{\numericalscope}{%
+Replace this paragraph with solver, mesh, boundary, material, convergence, and software
+limitations that materially affect interpretation of the reported results.}
+
+\newcommand{\affiliationdisclaimer}{%
+This document is an independent portfolio artifact and does not imply endorsement by an
+employer, university, instructor, customer, software vendor, or standards organization.}
+
+% -----------------------------------------------------------------
+% 5. Running headers and PDF properties
+% -----------------------------------------------------------------
+\newcommand{\headerleft}{Engineering Portfolio}
+\newcommand{\headerright}{\projectshorttitle}
+\newcommand{\pdfsubjecttext}{\projectdomain}
+\newcommand{\pdfkeywordstext}{engineering portfolio, analytical design, numerical simulation, verification, reproducibility, technical documentation}

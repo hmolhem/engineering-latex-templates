@@ -1,0 +1,85 @@
+% =========================================================
+% main.tex
+% Reusable Engineering Portfolio Report Template
+% =========================================================
+%
+% NORMAL WORKFLOW
+% ---------------
+% 1. Edit public project metadata in setup/00_metadata.tex.
+% 2. Replace the context, abstract, and objective in frontmatter/.
+% 3. Register technical sections in content/00_report_body.tex.
+% 4. Register appendices in appendices/00_appendices.tex.
+% 5. Add analytical, simulation, and measurement records.
+% 6. Compile with pdfLaTeX and Biber.
+%
+% This controller intentionally contains document assembly only.
+% =========================================================
+
+\documentclass[12pt,a4paper,oneside,openany]{report}
+
+% 1. Public, user-editable project metadata
+\input{setup/00_metadata}
+
+% 2. Shared portfolio-report setup
+\input{setup/01_packages}
+\input{setup/02_layout}
+\input{setup/03_math_macros}
+\input{setup/04_code_styles}
+\input{setup/05_environments}
+\input{setup/06_theme}
+
+% 3. PDF metadata
+\hypersetup{
+    pdftitle={\reporttitleplain},
+    pdfauthor={\authorname},
+    pdfsubject={\pdfsubjecttext},
+    pdfkeywords={\pdfkeywordstext}
+}
+
+% 4. Bibliography database
+\addbibresource{references.bib}
+
+\begin{document}
+
+% Public cover: no academic identifiers or institutional branding by default.
+\hypersetup{pageanchor=false}
+\input{frontmatter/titlepage}
+\hypersetup{pageanchor=true}
+
+% Portfolio front matter uses Roman page numbering.
+\clearpage
+\pagenumbering{roman}
+\setcounter{page}{1}
+\pagestyle{fancy}
+
+\input{frontmatter/portfolio_context}
+\clearpage
+\input{frontmatter/abstract}
+\clearpage
+\input{frontmatter/objective}
+
+\clearpage
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+
+% Main engineering narrative uses Arabic page numbering.
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\pagestyle{fancy}
+\input{content/00_report_body}
+
+% Appendices contain reproducibility and run-record evidence.
+\appendix
+\input{appendices/00_appendices}
+
+\clearpage
+\begingroup
+\sloppy
+\printbibliography[heading=bibintoc,title={References}]
+\endgroup
+
+\end{document}

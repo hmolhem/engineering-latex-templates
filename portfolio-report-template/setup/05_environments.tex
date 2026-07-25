@@ -1,0 +1,58 @@
+% =========================================================
+% setup/05_environments.tex
+% Evidence, decision, limitation, and claim environments
+% =========================================================
+\definecolor{AnalyticalColor}{RGB}{0,88,150}
+\definecolor{SimulatedColor}{RGB}{112,67,150}
+\definecolor{MeasuredColor}{RGB}{25,125,70}
+\definecolor{LimitationColor}{RGB}{170,85,0}
+\definecolor{DecisionColor}{RGB}{65,65,65}
+
+\newtcolorbox{analyticalevidencebox}[1][]{
+    enhanced,breakable,colback=AnalyticalColor!5,colframe=AnalyticalColor,
+    title={Analytical Evidence},fonttitle=\bfseries,#1
+}
+\newtcolorbox{simulatedevidencebox}[1][]{
+    enhanced,breakable,colback=SimulatedColor!5,colframe=SimulatedColor,
+    title={Simulated Evidence},fonttitle=\bfseries,#1
+}
+\newtcolorbox{measuredevidencebox}[1][]{
+    enhanced,breakable,colback=MeasuredColor!5,colframe=MeasuredColor,
+    title={Measured Evidence},fonttitle=\bfseries,#1
+}
+\newtcolorbox{limitationbox}[1][]{
+    enhanced,breakable,colback=LimitationColor!7,colframe=LimitationColor,
+    title={Limitation or Qualification},fonttitle=\bfseries,#1
+}
+\newtcolorbox{engineeringdecision}[1][]{
+    enhanced,breakable,colback=DecisionColor!5,colframe=DecisionColor,
+    title={Engineering Decision},fonttitle=\bfseries,#1
+}
+
+\newcommand{\evidencetag}[1]{%
+    \tcbox[on line,boxrule=0.5pt,arc=2pt,left=3pt,right=3pt,top=1pt,bottom=1pt,
+    colback=black!3,colframe=black!45]{\scriptsize\bfseries #1}%
+}
+\newcommand{\AnalyticalTag}{\evidencetag{ANALYTICAL}}
+\newcommand{\SimulatedTag}{\evidencetag{SIMULATED}}
+\newcommand{\MeasuredTag}{\evidencetag{MEASURED}}
+\newcommand{\QualifiedTag}{\evidencetag{QUALIFIED}}
+
+% Safe inclusion helper: missing figures produce a visible diagnostic box.
+\newcommand{\maybeincludegraphics}[2][]{%
+  \IfFileExists{#2}{%
+    \includegraphics[#1]{#2}%
+  }{%
+    \fbox{%
+      \begin{minipage}[c][0.20\textheight][c]{0.90\textwidth}
+        \centering\small Missing figure file:\par\scriptsize\nolinkurl{#2}
+      \end{minipage}%
+    }%
+  }%
+}
+
+% Consistent verification-matrix row command.
+\newcommand{\VerificationRow}[5]{%
+    #1 & #2 & #3 & #4 & #5\\
+    \addlinespace[2pt]
+}
