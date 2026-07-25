@@ -1,0 +1,108 @@
+% =========================================================
+% setup/00_metadata.tex
+% User-editable report metadata
+% =========================================================
+%
+% PURPOSE
+% -------
+% This is the primary configuration file for a new report.
+% In most projects, users should edit this file first and leave
+% main.tex and frontmatter/titlepage.tex unchanged.
+%
+% TEXT SAFETY
+% -----------
+% Escape LaTeX special characters in metadata when needed:
+%   &  -> \&        %  -> \%        _  -> \_
+% Use plain text in fields that are copied into PDF metadata.
+%
+
+% =========================================================
+% 1. Course, program, or project context
+% =========================================================
+
+\newcommand{\coursenumber}{ENGR 6000}
+\newcommand{\coursetitle}{Advanced Engineering Analysis}
+\newcommand{\coursename}{\coursenumber\ \coursetitle}
+\newcommand{\courseshorttitle}{\coursenumber\ Engineering Analysis}
+
+% Use these fields for an academic department and institution,
+% a company and business unit, or a research group and laboratory.
+\newcommand{\departmentname}{Department of Electrical and Computer Engineering}
+\newcommand{\universityname}{Example University}
+
+% =========================================================
+% 2. Report identity
+% =========================================================
+
+\newcommand{\assignmenttype}{Technical Project Report}
+\newcommand{\projecttitle}{Smart Sensor Array Design and Validation}
+\newcommand{\projectshorttitle}{Smart Sensor Array}
+
+% Formatted title shown on the cover page. Line breaks are intentional.
+\newcommand{\reporttitle}{%
+    \assignmenttype:\\[0.35cm]
+    Smart Sensor Array Design\\[0.15cm]
+    and Validation%
+}
+
+% Plain-text title used for PDF properties and accessibility metadata.
+% Keep this version free of formatting commands and manual line breaks.
+\newcommand{\reporttitleplain}{\assignmenttype: \projecttitle}
+
+% Short report title shown in page headers.
+\newcommand{\reportshorttitle}{\projectshorttitle}
+
+% =========================================================
+% 3. Author, supervisor, and submission information
+% =========================================================
+
+\newcommand{\studentname}{Author Name}
+\newcommand{\studentid}{000000000}
+\newcommand{\studentidlabel}{Student ID}
+\newcommand{\professorname}{Dr. Faculty Name}
+\newcommand{\semestername}{Fall Semester 2026}
+\newcommand{\submissiondate}{\today}
+
+% Optional title-page rows. Set each switch to true or false.
+\newif\ifshowstudentid
+\showstudentidtrue
+
+\newif\ifshowsupervisor
+\showsupervisortrue
+
+\newif\ifshowsemester
+\showsemestertrue
+
+% Labels may be adapted for academic, industrial, or consulting reports.
+\newcommand{\authorlabel}{Author}
+\newcommand{\supervisorlabel}{Instructor / Supervisor}
+
+% =========================================================
+% 4. Running headers
+% =========================================================
+
+\newcommand{\headerleft}{\courseshorttitle}
+\newcommand{\headerright}{\reportshorttitle}
+
+% =========================================================
+% 5. Optional cover logo
+% =========================================================
+
+% Set \showreportlogotrue to display the logo and
+% \showreportlogofalse to suppress it without deleting the path.
+\newif\ifshowreportlogo
+\showreportlogotrue
+
+% Place the authorized image inside report-template/figures/.
+\newcommand{\reportlogo}{figures/logo-placeholder.png}
+\newcommand{\reportlogowidth}{7.2cm}
+
+% The template intentionally renders a visible warning box when the
+% logo switch is enabled but the configured image cannot be found.
+
+% =========================================================
+% 6. PDF document properties
+% =========================================================
+
+\newcommand{\pdfsubjecttext}{\coursename}
+\newcommand{\pdfkeywordstext}{engineering report, modeling, simulation, validation, signal processing, embedded systems}
