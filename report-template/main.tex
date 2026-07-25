@@ -1,67 +1,35 @@
 % =========================================================
 % main.tex
 % Reusable Engineering Report Template
-% Based on Hossein Molhem's standardized 5G project report structure
+% =========================================================
+%
+% USER WORKFLOW
+% -------------
+% 1. Edit report metadata in setup/00_metadata.tex.
+% 2. Replace the objective and abstract in frontmatter/.
+% 3. Register report sections in content/00_report_body.tex.
+% 4. Register appendices in appendices/00_appendices.tex.
+% 5. Compile main.tex with pdfLaTeX and Biber.
+%
+% This file is intentionally limited to document assembly and should
+% normally remain unchanged between projects.
 % =========================================================
 
-% For technical reports, oneside/openany avoids unwanted blank pages.
+% For technical reports, oneside/openany avoids unintended blank pages.
 \documentclass[12pt, a4paper, oneside, openany]{report}
 
 % =========================================================
-% 1. Metadata Variables
-%    Edit this block for each new report.
+% 1. User-editable metadata
 % =========================================================
-
-% --- Course or project information ---
-\newcommand{\coursenumber}{ENGR 6000}
-\newcommand{\coursetitle}{Advanced Engineering Analysis}
-\newcommand{\coursename}{\coursenumber\ \coursetitle}
-\newcommand{\courseshorttitle}{\coursenumber\ Engineering Analysis}
-
-% --- Assignment/project information ---
-\newcommand{\assignmenttype}{Technical Project Report}
-\newcommand{\projecttitle}{Smart Sensor Array Design and Validation}
-\newcommand{\projectshorttitle}{Smart Sensor Array}
-
-% --- Full cover title ---
-\newcommand{\reporttitle}{%
-\assignmenttype:\\[0.35cm]
-Smart Sensor Array Design\\[0.15cm]
-and Validation%
-}
-
-% --- Plain title for PDF metadata and internal use ---
-\newcommand{\reporttitleplain}{\assignmenttype: \projecttitle}
-
-% --- Short title used in page headers ---
-\newcommand{\reportshorttitle}{\projectshorttitle}
-
-% --- Header text (all non-cover pages) ---
-\newcommand{\headerleft}{\courseshorttitle}
-\newcommand{\headerright}{\reportshorttitle}
-
-% --- Institution information ---
-\newcommand{\departmentname}{Department of Electrical and Computer Engineering}
-\newcommand{\universityname}{Example University}
-
-% --- Author and supervisor information ---
-\newcommand{\studentname}{Author Name}
-\newcommand{\studentid}{000000000}
-\newcommand{\studentidlabel}{Student ID}
-\newcommand{\professorname}{Dr. Faculty Name}
-
-% --- Submission information ---
-\newcommand{\semestername}{Fall Semester 2026}
-\newcommand{\submissiondate}{\today}
-
-% --- Optional cover logo ---
-% Comment the next line to remove the logo from the cover page.
-\newcommand{\reportlogo}{figures/logo-placeholder.png}
-\newcommand{\reportlogowidth}{7.2cm}
+% All report identity, title-page fields, headers, logo controls,
+% and PDF properties are centralized in one configuration file.
+\input{setup/00_metadata}
 
 % =========================================================
-% 2. Modular Setup Files
+% 2. Shared setup modules
 % =========================================================
+% These files control packages, page layout, mathematical notation,
+% code styles, reusable environments, and visual styling.
 \input{setup/01_packages}
 \input{setup/02_layout}
 \input{setup/03_math_macros}
@@ -72,33 +40,42 @@ and Validation%
 \input{setup/08_theme}
 
 % =========================================================
-% 3. PDF Metadata
+% 3. PDF metadata
 % =========================================================
+% Values are defined in setup/00_metadata.tex. Keep the plain title
+% free of line-break and typography commands.
 \hypersetup{
     pdftitle={\reporttitleplain},
     pdfauthor={\studentname},
-    pdfsubject={\coursename},
-    pdfkeywords={engineering report, modeling, simulation, validation, signal processing, embedded systems}
+    pdfsubject={\pdfsubjecttext},
+    pdfkeywords={\pdfkeywordstext}
 }
 
 % =========================================================
-% 4. Bibliography Database
+% 4. Bibliography database
 % =========================================================
 \addbibresource{references.bib}
 
 % =========================================================
-% 5. Document Begins
+% 5. Document assembly
 % =========================================================
 \begin{document}
 
-% Cover page: intentionally has no header or footer.
-% Disable the PDF page anchor here to avoid a duplicate page.1 destination
-% when Arabic numbering restarts after the front matter.
+% ---------------------------------------------------------
+% Cover page
+% ---------------------------------------------------------
+% The title page has no running header or footer. PDF page anchors are
+% temporarily disabled so Arabic numbering can restart later without a
+% duplicate page.1 destination warning.
 \hypersetup{pageanchor=false}
 \input{frontmatter/titlepage}
 \hypersetup{pageanchor=true}
 
-% Front matter uses Roman numerals and the same configurable header.
+% ---------------------------------------------------------
+% Front matter
+% ---------------------------------------------------------
+% Roman numbering is used for the objective, abstract, contents,
+% list of figures, and list of tables.
 \clearpage
 \pagenumbering{roman}
 \setcounter{page}{1}
@@ -117,20 +94,27 @@ and Validation%
 \clearpage
 \listoftables
 
-% Main report body uses Arabic page numbering.
+% ---------------------------------------------------------
+% Main report body
+% ---------------------------------------------------------
+% Add, remove, or reorder chapters and sections only through the
+% centralized content menu unless a project requires a special layout.
 \clearpage
 \pagenumbering{arabic}
 \setcounter{page}{1}
 \pagestyle{fancy}
-
-% A single content menu controls all report sections.
 \input{content/00_report_body}
 
-% Appendices are controlled through a second menu file.
-% Comment the next two lines if a report does not require appendices.
+% ---------------------------------------------------------
+% Appendices
+% ---------------------------------------------------------
+% Comment the next two lines when a report has no appendices.
 \appendix
 \input{appendices/00_appendices}
 
+% ---------------------------------------------------------
+% References
+% ---------------------------------------------------------
 \clearpage
 \printbibliography[heading=bibintoc, title={References}]
 
