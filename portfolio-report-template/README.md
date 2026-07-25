@@ -34,20 +34,47 @@ List of Tables
 3. Replace the abstract and objective.
 4. Register chapters in `content/00_report_body.tex`.
 5. Register appendices in `appendices/00_appendices.tex`.
-6. Store public support files in `codes/` and `verification_records/`.
+6. Store public support files in `codes/`, `simulation_records/`, and `verification_records/`.
 7. Compile and inspect every page before publication.
 
-## Build
+## Local build
 
-```bash
-latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+The template uses `biblatex` with the BibTeX backend and IEEE-style numeric citations.
+
+Validated Windows/MiKTeX build sequence:
+
+```powershell
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+bibtex main
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-The template uses `biblatex` with Biber.
+The four-command order is required so citations, bibliography entries, cross-references, contents, and page numbers are resolved.
+
+## Overleaf build
+
+Upload the complete `portfolio-report-template/` directory and select `main.tex` as the root document. The bibliography backend is configured in `setup/01_packages.tex`.
 
 ## Evidence rule
 
 Every significant public claim should be classified as analytical, simulated, or measured and should identify its source location and limitations. Simulation must never be described as measurement.
+
+## Engineering Verification Matrix
+
+The reusable matrix is maintained in `content/07_engineering_verification_matrix.tex`. It uses `longtable` for multipage reports, repeated headers, `booktabs` horizontal rules, and no vertical grid lines.
+
+## Generated files and curated preview
+
+Root-level generated files such as `main.pdf`, `main.aux`, `main.bbl`, `main-blx.bib`, and `main.log` are temporary and must not be committed.
+
+The reviewed publication preview is stored separately:
+
+```text
+preview/portfolio-report-template-preview.pdf
+```
+
+Refresh that file only after recompiling and visually reviewing the complete document.
 
 ## Relationship to the standard report template
 
