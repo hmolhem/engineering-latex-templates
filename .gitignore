@@ -3,6 +3,7 @@
 *.bbl
 *.bcf
 *.blg
+*-blx.bib
 *.fdb_latexmk
 *.fls
 *.lof
@@ -37,11 +38,9 @@ Thumbs.db
 .vscode/
 .idea/
 
-
-*.pdf
-
 # Keep curated template preview PDFs
 !report-template/preview/engineering-report-template-preview.pdf
+!portfolio-report-template/preview/portfolio-report-template-preview.pdf
 !presentation-template/preview/technical-presentation-template-preview.pdf
 !ieee-paper-template/preview/ieee-paper-template-preview.pdf
 
