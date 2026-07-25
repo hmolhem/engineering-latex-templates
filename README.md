@@ -87,11 +87,10 @@ See [`social-media/linkedin-carousel/README.md`](social-media/linkedin-carousel/
 The following curated PDFs are intentionally version-controlled:
 
 - [Engineering report template preview](report-template/preview/engineering-report-template-preview.pdf)
+- [Portfolio report template preview](portfolio-report-template/preview/portfolio-report-template-preview.pdf)
 - [Technical presentation template preview](presentation-template/preview/technical-presentation-template-preview.pdf)
 - [IEEE paper template preview](ieee-paper-template/preview/ieee-paper-template-preview.pdf)
 - [LinkedIn repository-showcase carousel](social-media/linkedin-carousel/engineering-latex-templates-carousel/engineering-latex-templates-carousel.pdf)
-
-The portfolio report was compiled and visually validated during H008. Its curated preview artifact is intentionally deferred until it is committed and independently reviewed as a repository artifact.
 
 Generated PDFs remain ignored by default. Explicitly named, reviewed publication artifacts should be refreshed whenever a material source change affects rendered output.
 
