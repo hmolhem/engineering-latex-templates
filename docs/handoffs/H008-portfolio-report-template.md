@@ -8,12 +8,15 @@
 | Author | `Hossein Molhem and ChatGPT` |
 | Repository | `hmolhem/engineering-latex-templates` |
 | Implementation branch | `feature/portfolio-report-template` |
-| Pull request | `#9` |
-| Head commit | `86afcd410a2f4c2c0ed82bad078cb311ba639de7` |
-| Merge commit | `8ac0d5089939087f39bd1de6b0b93dd5bc4ced21` |
+| Implementation pull request | `#9` |
+| Implementation head commit | `86afcd410a2f4c2c0ed82bad078cb311ba639de7` |
+| Implementation merge commit | `8ac0d5089939087f39bd1de6b0b93dd5bc4ced21` |
 | Preview-closeout branch | `docs/h008-preview-closeout` |
+| Preview-closeout pull request | `#10` |
+| Preview-closeout head commit | `f727c7d65723111548770ae4f39dc9bb4525bfa9` |
+| Preview-closeout merge commit | `a9a8331ef1ba8b6fc3e7c0935353b8a9610f72e6` |
 | Related version | `Unreleased after v0.2.0` |
-| Status | `Merged in PR #9; curated preview publication in closeout review` |
+| Status | `Complete — implementation merged in PR #9 and curated preview closeout merged in PR #10` |
 
 ## Purpose
 
@@ -168,20 +171,25 @@ No unrelated source changes were made to the existing report, presentation, IEEE
 - [x] Head and merge commits recorded
 - [x] Curated preview regenerated after the final table correction
 - [x] Preview metadata, page count, fonts, and checksum verified
-- [ ] Preview-closeout pull request merged
+- [x] Preview-closeout PR #10 merged
+- [x] Preview-closeout head and merge commits recorded
 
 ## Recovery and rollback
 
-Revert merge commit `8ac0d5089939087f39bd1de6b0b93dd5bc4ced21` to remove the standalone portfolio template and its H008 documentation without rewriting repository history.
+Revert merge commit `8ac0d5089939087f39bd1de6b0b93dd5bc4ced21` to remove the standalone portfolio template and its H008 implementation without rewriting repository history.
 
-If only the curated preview must be removed, revert the preview-closeout merge commit rather than reverting the H008 implementation.
+If only the curated preview and its closeout records must be removed, revert preview-closeout merge commit `a9a8331ef1ba8b6fc3e7c0935353b8a9610f72e6` rather than reverting the H008 implementation.
 
 ## Related references
 
-- Pull request: `#9`
+- Implementation pull request: `#9`
 - Implementation branch: `feature/portfolio-report-template`
-- Head commit: `86afcd410a2f4c2c0ed82bad078cb311ba639de7`
-- Merge commit: `8ac0d5089939087f39bd1de6b0b93dd5bc4ced21`
+- Implementation head commit: `86afcd410a2f4c2c0ed82bad078cb311ba639de7`
+- Implementation merge commit: `8ac0d5089939087f39bd1de6b0b93dd5bc4ced21`
+- Preview-closeout pull request: `#10`
+- Preview-closeout branch: `docs/h008-preview-closeout`
+- Preview-closeout head commit: `f727c7d65723111548770ae4f39dc9bb4525bfa9`
+- Preview-closeout merge commit: `a9a8331ef1ba8b6fc3e7c0935353b8a9610f72e6`
 - Template controller: `portfolio-report-template/main.tex`
 - Metadata: `portfolio-report-template/setup/00_metadata.tex`
 - Package configuration: `portfolio-report-template/setup/01_packages.tex`
